@@ -3,175 +3,161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfólio Y2K - Jackson Poolblay Santos Silva</title>
+<title>Jackson Poolblay | Y2K Profile</title>
 
 <style>
-:root{
-  --pink:#ff4dff;
-  --cyan:#00ffff;
-  --white:#ffffff;
-  --panel:rgba(255,255,255,.08);
-  --text-muted:#d7c7ff;
-}
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-  min-height:100vh;
-  padding:25px;
-  font-family:Verdana,sans-serif;
-  color:white;
+font-family:Tahoma,Verdana,sans-serif;
+color:white;
+min-height:100vh;
+overflow-x:hidden;
 
-  background:
-  radial-gradient(circle at top left,#ff4dff 0%,transparent 25%),
-  radial-gradient(circle at top right,#00ffff 0%,transparent 25%),
-  linear-gradient(135deg,#0d0218,#1b0430,#090015);
-}
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background-image:
-  linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
-  background-size:25px 25px;
-  pointer-events:none;
+background:
+radial-gradient(circle at 20% 20%, #00ffff55, transparent 20%),
+radial-gradient(circle at 80% 30%, #ff66ff55, transparent 20%),
+linear-gradient(135deg,#02122d,#25003d,#090018);
 }
 
 .container{
-  max-width:1300px;
-  margin:auto;
+width:min(1200px,95%);
+margin:auto;
+padding:30px 0;
 }
 
-.dashboard{
-  display:grid;
-  grid-template-columns:300px 1fr;
-  gap:25px;
-}
-
-.sidebar{
-  background:var(--panel);
-  backdrop-filter:blur(15px);
-  border:2px solid var(--cyan);
-  border-radius:30px;
-  padding:25px;
-
-  box-shadow:
-  0 0 20px rgba(255,77,255,.5),
-  0 0 40px rgba(0,255,255,.3);
-}
-
-.logo{
-  text-align:center;
-}
-
-.logo h1{
-  color:var(--pink);
-  text-shadow:
-  0 0 10px var(--pink),
-  0 0 25px var(--cyan);
-}
-
-.logo p{
-  margin-top:10px;
-  color:var(--text-muted);
+.hero{
+text-align:center;
+margin-bottom:30px;
 }
 
 .avatar{
-  width:140px;
-  height:140px;
-  border-radius:50%;
-  border:3px solid var(--cyan);
-  margin:25px auto;
+width:180px;
+height:180px;
+margin:auto;
+border-radius:50%;
+border:5px solid #00ffff;
 
-  display:flex;
-  justify-content:center;
-  align-items:center;
+display:flex;
+justify-content:center;
+align-items:center;
 
-  font-size:70px;
-  background:rgba(255,255,255,.08);
+font-size:90px;
+
+background:rgba(255,255,255,.1);
+
+box-shadow:
+0 0 20px #00ffff,
+0 0 40px #ff66ff;
 }
 
-.info-box{
-  background:rgba(0,0,0,.25);
-  border:1px solid var(--cyan);
-  border-radius:15px;
-  padding:15px;
-  margin-bottom:15px;
+.hero h1{
+margin-top:20px;
+font-size:3rem;
+
+background:linear-gradient(
+90deg,
+#00ffff,
+#ffffff,
+#ff66ff
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-.main{
-  background:var(--panel);
-  backdrop-filter:blur(15px);
-  border:2px solid var(--cyan);
-  border-radius:30px;
-  padding:35px;
-
-  box-shadow:
-  0 0 20px rgba(0,255,255,.3),
-  0 0 40px rgba(255,77,255,.2);
+.hero p{
+color:#d9cfff;
+margin-top:10px;
 }
 
-.header{
-  text-align:center;
-  margin-bottom:30px;
+.layout{
+display:grid;
+grid-template-columns:300px 1fr;
+gap:25px;
 }
 
-.header h2{
-  color:var(--pink);
+.card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
 
-  text-shadow:
-  0 0 10px var(--pink),
-  0 0 25px var(--cyan);
+border:2px solid rgba(255,255,255,.2);
+
+border-radius:25px;
+padding:20px;
+
+box-shadow:
+0 0 15px rgba(0,255,255,.3),
+0 0 25px rgba(255,102,255,.2);
+}
+
+.card h2{
+margin-bottom:15px;
+color:#00ffff;
+}
+
+.side-item{
+margin-bottom:15px;
+padding:12px;
+border-radius:15px;
+background:rgba(255,255,255,.05);
 }
 
 .section{
-  background:rgba(0,0,0,.25);
-  border:1px solid var(--cyan);
-  border-radius:20px;
-  padding:20px;
-  margin-bottom:20px;
+margin-bottom:25px;
 }
 
 .section h3{
-  color:var(--cyan);
-  margin-bottom:10px;
+color:#ff66ff;
+margin-bottom:10px;
 }
 
-.section p,
-.section li{
-  line-height:1.8;
+.section p{
+line-height:1.8;
 }
 
 .badges{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
+display:flex;
+flex-wrap:wrap;
+gap:10px;
 }
 
 .badge{
-  padding:8px 15px;
-  border-radius:50px;
-  border:1px solid var(--pink);
-  background:rgba(255,77,255,.2);
+padding:10px 16px;
+border-radius:30px;
+
+background:linear-gradient(
+135deg,
+#00ffff44,
+#ff66ff44
+);
+
+border:1px solid #ffffff55;
 }
 
 .footer{
-  text-align:center;
-  color:var(--text-muted);
-  margin-top:30px;
+text-align:center;
+margin-top:30px;
+color:#d9cfff;
 }
 
 @media(max-width:900px){
-  .dashboard{
-    grid-template-columns:1fr;
-  }
+
+.layout{
+grid-template-columns:1fr;
 }
+
+.hero h1{
+font-size:2rem;
+}
+
+}
+
 </style>
 </head>
 
@@ -179,44 +165,47 @@ body::before{
 
 <div class="container">
 
-<div class="dashboard">
-
-<aside class="sidebar">
-
-<div class="logo">
-<h1>Y2K PROFILE</h1>
-<p>MEDIOTEC SENAC • 1º ANO E</p>
-</div>
+<div class="hero">
 
 <div class="avatar">😎</div>
 
-<div class="info-box">
-<b>Nome:</b><br>
-Jackson Poolblay Santos Silva
+<h1>JACKSON POOLBLAY</h1>
+
+<p>★ Gamer • Criador • Sonhador • Futuro Desenvolvedor ★</p>
+
 </div>
 
-<div class="info-box">
-<b>Cidade:</b><br>
-Recife - PE
+<div class="layout">
+
+<aside class="card">
+
+<h2>💿 PROFILE</h2>
+
+<div class="side-item">
+📍 Recife - PE
 </div>
 
-<div class="info-box">
-<b>Status:</b><br>
-Desenvolvendo novos projetos 🚀
+<div class="side-item">
+🎂 Estudante do MEDIOTEC SENAC
+</div>
+
+<div class="side-item">
+🎮 Hobby Principal: Jogar
+</div>
+
+<div class="side-item">
+🚀 Trabalhando em novos projetos
 </div>
 
 </aside>
 
-<main class="main">
+<main class="card">
+  <div class="section">
 
-<div class="header">
-<h2>MEU PRIMEIRO PORTFÓLIO</h2>
-</div>
-<div class="section">
-<h3>👤 Apresentação Pessoal</h3>
+<h3>👤 Sobre Mim</h3>
 
 <p>
-Sou Jackson Poolblay Santos Silva. Sou um garoto com muitos objetivos e sonhos para o futuro. Gosto de aprender coisas novas, desenvolver minha criatividade e buscar novos desafios. No meu tempo livre, meu principal hobby é jogar videogame, atividade que me diverte e também me inspira em novas ideias para projetos.
+Meu nome é Jackson Poolblay Santos Silva. Sou um garoto com muitos objetivos e sonhos para o futuro. Gosto de aprender coisas novas, desenvolver minha criatividade e enfrentar novos desafios. No meu tempo livre, meu principal hobby é jogar videogame, atividade que me diverte e também me inspira para criar novas ideias e projetos.
 </p>
 
 </div>
@@ -226,11 +215,11 @@ Sou Jackson Poolblay Santos Silva. Sou um garoto com muitos objetivos e sonhos p
 <h3>🎮 Jogos Favoritos</h3>
 
 <div class="badges">
-<span class="badge">Cuphead</span>
-<span class="badge">Five Nights at Freddy's</span>
-<span class="badge">Counter-Strike</span>
-<span class="badge">Code</span>
-<span class="badge">Outros Jogos</span>
+<div class="badge">🎮 Cuphead</div>
+<div class="badge">🐻 FNaF</div>
+<div class="badge">🔫 Counter-Strike</div>
+<div class="badge">💻 Code</div>
+<div class="badge">⭐ Entre Outros</div>
 </div>
 
 </div>
@@ -240,7 +229,7 @@ Sou Jackson Poolblay Santos Silva. Sou um garoto com muitos objetivos e sonhos p
 <h3>💻 Tecnologias que Desejo Aprender</h3>
 
 <p>
-Ainda estou explorando diferentes áreas da tecnologia para descobrir quais mais combinam comigo. Tenho interesse em programação, desenvolvimento de jogos, design digital e criação de projetos criativos para a internet.
+Ainda estou explorando diferentes áreas da tecnologia para descobrir quais mais combinam comigo. Tenho interesse em aprender programação, desenvolvimento de jogos, criação de sites e outras ferramentas que possam me ajudar a transformar minhas ideias em realidade.
 </p>
 
 </div>
@@ -250,7 +239,7 @@ Ainda estou explorando diferentes áreas da tecnologia para descobrir quais mais
 <h3>🚀 Projetos em Desenvolvimento</h3>
 
 <p>
-Atualmente estou trabalhando em dois projetos. O primeiro se chama <strong>Escape Nana</strong>, um projeto que estou desenvolvendo e aprimorando constantemente. Também estou criando um segundo projeto que ainda não possui um nome definido. Meu objetivo é continuar evoluindo essas ideias, adquirir mais experiência e transformá-las em projetos cada vez maiores e melhores.
+Atualmente estou trabalhando em dois projetos. O primeiro se chama <strong>Escape Nana</strong>, um projeto que está em desenvolvimento e recebendo melhorias constantes. Também estou criando um segundo projeto que ainda não possui um nome definido. Meu objetivo é continuar evoluindo essas ideias, adquirir mais experiência e transformá-las em projetos cada vez maiores e melhores.
 </p>
 
 </div>
@@ -260,17 +249,17 @@ Atualmente estou trabalhando em dois projetos. O primeiro se chama <strong>Escap
 <h3>⭐ Objetivos</h3>
 
 <p>
-Meu objetivo é continuar aprendendo sobre tecnologia, desenvolver projetos cada vez mais criativos e adquirir conhecimentos que possam me ajudar tanto nos estudos quanto em futuras oportunidades profissionais.
+Continuar aprendendo sobre tecnologia, desenvolver projetos criativos, aprimorar minhas habilidades e transformar minhas ideias em projetos que possam ser compartilhados com outras pessoas.
 </p>
 
 </div>
 
-<div class="footer">
-© 2026 • Portfólio de Jackson Poolblay Santos Silva
-</div>
-
 </main>
 
+</div>
+
+<div class="footer">
+✦ Jackson Poolblay Santos Silva • Y2K Profile ✦
 </div>
 
 </div>
