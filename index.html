@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jackson Poolblay Santos Silva</title>
+
+<title>Jackson Poolblay - Aero World</title>
 
 <style>
 
@@ -14,105 +17,282 @@ box-sizing:border-box;
 }
 
 body{
+
 font-family:Tahoma,Verdana,sans-serif;
 
 background:
-url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');
+linear-gradient(
+180deg,
+#71c7ff 0%,
+#a8e0ff 40%,
+#ffffff 100%
+);
 
-background-size:cover;
-background-attachment:fixed;
+overflow-x:hidden;
 
-padding:20px;
+min-height:100vh;
+
 }
 
-.window{
+/* BOLHAS */
 
-max-width:1200px;
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:100%;
+height:100%;
+
+background-image:
+
+radial-gradient(circle,#ffffff88 5px,transparent 6px),
+radial-gradient(circle,#ffffff66 10px,transparent 11px),
+radial-gradient(circle,#ffffff55 15px,transparent 16px);
+
+background-size:
+250px 250px,
+400px 400px,
+600px 600px;
+
+pointer-events:none;
+
+}
+
+/* OLHOS DECORATIVOS */
+
+.eye-left{
+
+position:fixed;
+
+left:20px;
+top:150px;
+
+width:180px;
+height:180px;
+
+background:white;
+
+border-radius:50%;
+
+border:8px solid #00b7ff;
+
+box-shadow:
+0 0 30px #00b7ff;
+
+}
+
+.eye-left::before{
+
+content:"";
+
+position:absolute;
+
+width:80px;
+height:80px;
+
+background:#00c6ff;
+
+border-radius:50%;
+
+left:50px;
+top:50px;
+
+}
+
+.eye-left::after{
+
+content:"";
+
+position:absolute;
+
+width:30px;
+height:30px;
+
+background:black;
+
+border-radius:50%;
+
+left:75px;
+top:75px;
+
+}
+
+.eye-right{
+
+position:fixed;
+
+right:20px;
+top:150px;
+
+width:180px;
+height:180px;
+
+background:white;
+
+border-radius:50%;
+
+border:8px solid #00b7ff;
+
+box-shadow:
+0 0 30px #00b7ff;
+
+}
+
+.eye-right::before{
+
+content:"";
+
+position:absolute;
+
+width:80px;
+height:80px;
+
+background:#00c6ff;
+
+border-radius:50%;
+
+left:50px;
+top:50px;
+
+}
+
+.eye-right::after{
+
+content:"";
+
+position:absolute;
+
+width:30px;
+height:30px;
+
+background:black;
+
+border-radius:50%;
+
+left:75px;
+top:75px;
+
+}
+
+/* CONTAINER */
+
+.wrapper{
+
+width:min(1300px,95%);
+
 margin:auto;
 
-background:#f8fbff;
-
-border:4px solid #2f66d0;
-
-box-shadow:0 0 25px rgba(0,0,0,.25);
+padding:30px;
 
 }
 
-.topbar{
+/* TOPO */
 
-background:linear-gradient(#3c82ff,#275dc5);
+.hero{
 
-color:white;
+background:
+linear-gradient(
+180deg,
+#ffffff,
+#e8faff
+);
 
-padding:12px;
+border:6px solid #5fd4ff;
 
-font-size:30px;
-font-weight:bold;
+border-radius:40px;
 
-}
+padding:25px;
 
-.header{
+box-shadow:
+0 0 30px #8de8ff,
+0 0 60px #ffffff;
 
 display:grid;
 
-grid-template-columns:300px 1fr;
+grid-template-columns:350px 1fr;
 
-gap:20px;
+gap:25px;
 
-padding:20px;
+margin-bottom:25px;
 
 }
 
-.photo{
+/* FOTO */
 
-height:280px;
+.avatar{
 
-border:8px solid #8df542;
+height:320px;
 
-border-radius:30px;
+border-radius:35px;
 
-background:linear-gradient(#d8ffd8,#a4ff89);
+background:
+linear-gradient(
+135deg,
+#d8ff8a,
+#8fffbc
+);
+
+border:6px solid #79ff00;
 
 display:flex;
+
 align-items:center;
 justify-content:center;
 
-font-size:100px;
+font-size:120px;
+
+box-shadow:
+0 0 25px #8fff00;
 
 }
 
-.profile h1{
+/* INFO */
 
-font-size:52px;
+.hero-info h1{
 
-color:#2e3fb6;
+font-size:4rem;
 
-margin-bottom:10px;
+color:#2f48ff;
+
+text-shadow:
+0 0 10px white,
+0 0 20px #7be4ff;
+
+}
+
+.hero-info p{
+
+font-size:1.2rem;
+
+margin-top:15px;
+
+line-height:2;
 
 }
 
-.profile p{
-
-font-size:18px;
-
-line-height:1.8;
-
-}
+/* MENU */
 
 .menu{
+
+background:white;
+
+border:5px solid #6dcfff;
+
+border-radius:30px;
+
+padding:15px;
 
 display:flex;
 
 justify-content:center;
 
-gap:15px;
+gap:20px;
 
-padding:15px;
+flex-wrap:wrap;
 
-background:#eef6ff;
-
-border-top:3px solid #2f66d0;
-border-bottom:3px solid #2f66d0;
+margin-bottom:25px;
 
 }
 
@@ -120,119 +300,220 @@ border-bottom:3px solid #2f66d0;
 
 text-decoration:none;
 
-color:#2047a7;
-
-background:white;
-
-padding:10px 25px;
-
-border:2px solid #2f66d0;
-
-border-radius:10px;
-
 font-weight:bold;
+
+font-size:1rem;
+
+padding:12px 25px;
+
+border-radius:30px;
+
+background:
+linear-gradient(
+180deg,
+#d8ff8a,
+#89ff68
+);
+
+color:#245200;
+
+border:2px solid #58a900;
+
+box-shadow:
+0 0 10px #9fff89;
 
 }
 
-.content{
+/* LAYOUT */
+
+.layout{
 
 display:grid;
 
-grid-template-columns:420px 1fr;
+grid-template-columns:350px 1fr;
 
-gap:20px;
-
-padding:20px;
+gap:25px;
 
 }
 
-.box{
-
-background:white;
-
-border:2px solid #7aa8ff;
-
-padding:15px;
-
-}
-
-.box h2{
-
-margin-bottom:10px;
-
-color:#2849b9;
-
-}
-
-.buttons{
+.sidebar{
 
 display:flex;
 flex-direction:column;
-gap:10px;
+gap:20px;
 
 }
 
-.aero-btn{
+.card{
 
-background:linear-gradient(#9cff74,#56d12c);
+background:white;
 
-border:2px solid #3a9f1e;
+border:4px solid #74d5ff;
 
-padding:15px;
+border-radius:25px;
 
-text-align:center;
+padding:20px;
 
-border-radius:40px;
+box-shadow:
+0 0 15px rgba(0,183,255,.3);
+
+}
+
+.card h2{
+
+color:#3150ff;
+
+margin-bottom:15px;
+
+}
+
+.main{
+
+display:flex;
+flex-direction:column;
+gap:20px;
+
+}
+
+.badge{
+
+display:inline-block;
+
+padding:12px 18px;
+
+margin:6px;
+
+border-radius:30px;
+
+background:
+linear-gradient(
+180deg,
+#fff88f,
+#ffcf58
+);
 
 font-weight:bold;
 
-}
+border:2px solid #ffae00;
 
-.footer{
+}.footer{
 
-margin:20px;
+margin-top:25px;
 
-padding:15px;
+background:
+linear-gradient(
+180deg,
+#ffffff,
+#dff7ff
+);
+
+border:5px solid #6fd8ff;
+
+border-radius:30px;
+
+padding:25px;
 
 text-align:center;
 
-background:#f1f8ff;
+font-weight:bold;
 
-border:2px solid #7aa8ff;
+box-shadow:
+0 0 25px #9beeff;
+
+}
+
+.cloud{
+
+position:fixed;
+
+background:white;
+
+border-radius:100px;
+
+opacity:.8;
+
+z-index:-1;
+
+}
+
+.cloud1{
+width:180px;
+height:60px;
+top:80px;
+left:250px;
+}
+
+.cloud2{
+width:250px;
+height:80px;
+top:300px;
+right:250px;
+}
+
+.cloud3{
+width:220px;
+height:70px;
+bottom:100px;
+left:150px;
+}
+
+@media(max-width:900px){
+
+.hero{
+grid-template-columns:1fr;
+}
+
+.layout{
+grid-template-columns:1fr;
+}
+
+.eye-left,
+.eye-right{
+display:none;
+}
+
+.hero-info h1{
+font-size:2.5rem;
+}
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="window">
+<div class="eye-left"></div>
+<div class="eye-right"></div>
 
-<div class="topbar">
-🌐 Jackson Poolblay Profile
-</div>
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+<div class="cloud cloud3"></div>
 
-<div class="header">
+<div class="wrapper">
 
-<div class="photo">
+<div class="hero">
+
+<div class="avatar">
 😎
 </div>
 
-<div class="profile">
+<div class="hero-info">
 
-<h1>Jackson Poolblay</h1>
+<h1>JACKSON POOLBLAY</h1>
 
 <p>
 🎮 Gamer<br>
 🚀 Criador de Projetos<br>
-💻 Futuro Desenvolvedor
+💻 Futuro Desenvolvedor<br>
+⭐ Sonhador e Criativo
 </p>
 
 <br>
 
 <p>
-Último login: Hoje
+🟢 Status: ONLINE
 </p>
 
 </div>
@@ -245,142 +526,130 @@ border:2px solid #7aa8ff;
 <a href="#">Jogos</a>
 <a href="#">Projetos</a>
 <a href="#">Tecnologias</a>
+<a href="#">Contato</a>
 
 </div>
 
-<div class="content">
+<div class="layout">
 
-<div>
-  <div class="box">
+<div class="sidebar">
 
-<h2>📰 STATUS</h2>
+<div class="card">
 
-<p>🟢 Online</p>
-<p>🎮 Jogando</p>
-<p>🚀 Desenvolvendo Projetos</p>
-<p>⭐ Aprendendo Novas Habilidades</p>
+<h2>👤 Perfil</h2>
 
-</div>
-
+<p>📍 Recife - PE</p>
 <br>
+<p>🎓 MEDIOTEC SENAC</p>
+<br>
+<p>🎮 Hobby: Jogar</p>
 
-<div class="box">
+</div>
+
+<div class="card">
+
+<h2>🎵 Music Player</h2>
+
+<p>▶ Y2K Playlist</p>
+<br>
+<p>⏸ Frutiger Aero Mix</p>
+
+</div>
+
+<div class="card">
+
+<h2>📊 Visitantes</h2>
+
+<h1 style="color:#3f66ff;">
+000001337
+</h1>
+
+</div>
+
+<div class="card">
 
 <h2>🎮 Jogos Favoritos</h2>
 
-<div class="buttons">
-
-<div class="aero-btn">🎮 Cuphead</div>
-
-<div class="aero-btn">🐻 FNaF</div>
-
-<div class="aero-btn">🔫 Counter-Strike</div>
-
-<div class="aero-btn">💻 Code</div>
-
-<div class="aero-btn">⭐ Entre Outros</div>
+<div class="badge">Cuphead</div>
+<div class="badge">FNaF</div>
+<div class="badge">Counter-Strike</div>
+<div class="badge">Code</div>
+<div class="badge">Outros</div>
 
 </div>
 
 </div>
 
-<br>
+<div class="main">
 
-<div class="box">
+<div class="card">
 
-<h2>📊 Estatísticas</h2>
-
-<p>👤 Visitantes: 00001</p>
-<br>
-<p>🚀 Projetos Atuais: 2</p>
-<br>
-<p>💡 Ideias em Desenvolvimento: Muitas</p>
-
-</div>
-
-</div>
-
-<div>
-
-<div class="box">
-
-<h2>👤 Sobre Mim</h2>
+<h2>✨ Sobre Mim</h2>
 
 <p>
 
-Meu nome é <strong>Jackson Poolblay Santos Silva</strong>.
+Meu nome é Jackson Poolblay Santos Silva.
 
-Sou um garoto com muitos objetivos e sonhos para o futuro. Gosto de aprender coisas novas, explorar minha criatividade e desenvolver projetos que transformem minhas ideias em realidade.
+Sou um garoto com muitos objetivos e sonhos para o futuro. Gosto de aprender coisas novas, desenvolver minha criatividade e criar projetos que transformem minhas ideias em realidade.
 
-Meu principal hobby é jogar videogame, algo que me diverte e também me inspira a criar novas experiências e desafios.
+No meu tempo livre, meu principal hobby é jogar videogame, atividade que me diverte e me inspira a criar novas experiências.
 
 </p>
 
 </div>
 
-<br>
-
-<div class="box">
+<div class="card">
 
 <h2>💻 Tecnologias que Desejo Aprender</h2>
 
 <p>
 
-Ainda estou descobrindo quais áreas da tecnologia mais combinam comigo. Tenho interesse em programação, desenvolvimento de jogos, criação de sites, design digital e outras áreas criativas relacionadas à tecnologia.
+Ainda estou explorando diferentes áreas da tecnologia para descobrir quais mais combinam comigo.
+
+Tenho interesse em programação, desenvolvimento de jogos, criação de sites e ferramentas digitais que me permitam desenvolver projetos criativos.
 
 </p>
 
 </div>
 
-<br>
+<div class="card">
 
-<div class="box">
-
-<h2>🚀 Projetos em Desenvolvimento</h2>
+<h2>🚀 Projetos</h2>
 
 <p>
 
 Atualmente estou trabalhando em dois projetos.
 
-O primeiro se chama <strong>Escape Nana</strong>, um projeto que está sendo desenvolvido constantemente e recebendo novas ideias e melhorias.
+O primeiro é <strong>Escape Nana</strong>, um projeto que está em constante desenvolvimento e recebendo novas melhorias.
 
-Também estou criando um segundo projeto que ainda não possui um nome definido, mas que futuramente poderá se tornar algo ainda maior.
-
-Meu objetivo é continuar evoluindo essas ideias e transformá-las em projetos completos e criativos.
+Também estou trabalhando em um segundo projeto que ainda não possui um nome definido, mas que já está em fase de planejamento e desenvolvimento.
 
 </p>
 
 </div>
 
-<br>
+<div class="card">
 
-<div class="box">
-
-<h2>⭐ Objetivos</h2>
+<h2>🌟 Objetivos</h2>
 
 <p>
 
-Continuar aprendendo novas habilidades, aprimorar meus conhecimentos em tecnologia, criar projetos cada vez melhores e transformar minhas ideias em experiências que possam ser compartilhadas com outras pessoas.
+Continuar aprendendo, desenvolver minhas habilidades, criar projetos cada vez melhores e transformar minhas ideias em experiências que possam ser compartilhadas com outras pessoas.
 
 </p>
 
 </div>
 
-<br>
-
-<div class="box">
+<div class="card">
 
 <h2>💿 Interesses</h2>
 
-<p>
-
-🎮 Games<br>
-💻 Tecnologia<br>
-🎨 Criatividade<br>
-🚀 Desenvolvimento de Projetos<br>
-🌐 Internet e Cultura Digital
-
-</p>
+<div class="badge">🎮 Games</div>
+<div class="badge">💻 Tecnologia</div>
+<div class="badge">🎨 Criatividade</div>
+<div class="badge">🚀 Desenvolvimento</div>
+<div class="badge">🌐 Internet</div>
+<div class="badge">⭐ Futuro</div>
 
 </div>
 
@@ -390,7 +659,7 @@ Continuar aprendendo novas habilidades, aprimorar meus conhecimentos em tecnolog
 
 <div class="footer">
 
-🌐 JACKSON POOLBLAY SANTOS SILVA • PROFILE WEB 2008 • FRUTIGER AERO EDITION 🌐
+☁️ 💿 🌈 JACKSON POOLBLAY SANTOS SILVA • WEB 2.0 • FRUTIGER AERO • 2008 VIBES 🌈 💿 ☁️
 
 </div>
 
