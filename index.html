@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Jackson Poolblay - Aero Profile</title>
+<title>Jackson Poolblay Santos Silva</title>
 
 <style>
 
@@ -17,252 +14,219 @@ box-sizing:border-box;
 }
 
 body{
-
 font-family:Tahoma,Verdana,sans-serif;
 
 background:
-linear-gradient(
-180deg,
-#b8dcff 0%,
-#e8f5ff 40%,
-#ffffff 100%
-);
+url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');
 
-color:#1d2b44;
+background-size:cover;
+background-attachment:fixed;
 
-min-height:100vh;
+padding:20px;
+}
+
+.window{
+
+max-width:1200px;
+margin:auto;
+
+background:#f8fbff;
+
+border:4px solid #2f66d0;
+
+box-shadow:0 0 25px rgba(0,0,0,.25);
 
 }
 
-.container{
+.topbar{
 
-width:min(1200px,95%);
-margin:auto;
-padding:20px;
+background:linear-gradient(#3c82ff,#275dc5);
+
+color:white;
+
+padding:12px;
+
+font-size:30px;
+font-weight:bold;
 
 }
 
 .header{
 
-background:white;
-
-border:4px solid #4b8eff;
-
-border-radius:25px;
-
-padding:25px;
-
 display:grid;
 
-grid-template-columns:250px 1fr;
+grid-template-columns:300px 1fr;
 
-gap:25px;
+gap:20px;
 
-box-shadow:
-0 0 15px rgba(0,100,255,.2);
-
-margin-bottom:20px;
+padding:20px;
 
 }
 
-.profile-pic{
+.photo{
 
-width:220px;
-height:220px;
+height:280px;
+
+border:8px solid #8df542;
 
 border-radius:30px;
 
-background:
-linear-gradient(
-135deg,
-#d7ff8c,
-#84ff84
-);
+background:linear-gradient(#d8ffd8,#a4ff89);
 
 display:flex;
 align-items:center;
 justify-content:center;
 
-font-size:90px;
-
-border:4px solid #84d600;
+font-size:100px;
 
 }
 
-.profile-info h1{
+.profile h1{
 
-font-size:3rem;
+font-size:52px;
 
-color:#3a48c9;
+color:#2e3fb6;
 
 margin-bottom:10px;
 
 }
 
-.profile-info p{
+.profile p{
 
-font-size:1.1rem;
+font-size:18px;
 
-line-height:1.7;
+line-height:1.8;
 
 }
 
-.nav{
+.menu{
 
-background:white;
+display:flex;
 
-border:4px solid #4b8eff;
+justify-content:center;
+
+gap:15px;
 
 padding:15px;
 
-border-radius:20px;
+background:#eef6ff;
 
-margin-bottom:20px;
-
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
+border-top:3px solid #2f66d0;
+border-bottom:3px solid #2f66d0;
 
 }
 
-.nav a{
+.menu a{
 
 text-decoration:none;
 
-color:#2b4fc9;
-
-font-weight:bold;
-
-padding:10px 20px;
-
-border-radius:30px;
-
-background:#e7f2ff;
-
-}
-
-.layout{
-
-display:grid;
-
-grid-template-columns:350px 1fr;
-
-gap:20px;
-
-}
-
-.sidebar{
-
-display:flex;
-flex-direction:column;
-gap:20px;
-
-}
-
-.card{
+color:#2047a7;
 
 background:white;
 
-border:3px solid #77a9ff;
+padding:10px 25px;
 
-border-radius:20px;
+border:2px solid #2f66d0;
 
-padding:20px;
-
-box-shadow:
-0 0 10px rgba(0,100,255,.1);
-
-}
-
-.card h2{
-
-color:#2d59d1;
-
-margin-bottom:15px;
-
-}
-
-.badge{
-
-display:inline-block;
-
-padding:10px 15px;
-
-margin:5px;
-
-border-radius:30px;
-
-background:
-linear-gradient(
-135deg,
-#d5ff77,
-#9cff9c
-);
+border-radius:10px;
 
 font-weight:bold;
 
 }
 
-.main{
+.content{
+
+display:grid;
+
+grid-template-columns:420px 1fr;
+
+gap:20px;
+
+padding:20px;
+
+}
+
+.box{
+
+background:white;
+
+border:2px solid #7aa8ff;
+
+padding:15px;
+
+}
+
+.box h2{
+
+margin-bottom:10px;
+
+color:#2849b9;
+
+}
+
+.buttons{
+
 display:flex;
 flex-direction:column;
-gap:20px;
+gap:10px;
+
+}
+
+.aero-btn{
+
+background:linear-gradient(#9cff74,#56d12c);
+
+border:2px solid #3a9f1e;
+
+padding:15px;
+
+text-align:center;
+
+border-radius:40px;
+
+font-weight:bold;
+
 }
 
 .footer{
 
-margin-top:20px;
+margin:20px;
 
-background:white;
-
-border:3px solid #77a9ff;
-
-padding:20px;
-
-border-radius:20px;
+padding:15px;
 
 text-align:center;
 
-}
+background:#f1f8ff;
 
-@media(max-width:900px){
-
-.header{
-grid-template-columns:1fr;
-text-align:center;
-}
-
-.layout{
-grid-template-columns:1fr;
-}
-
-.profile-pic{
-margin:auto;
-}
+border:2px solid #7aa8ff;
 
 }
 
 </style>
-
 </head>
 
 <body>
 
-<div class="container">
+<div class="window">
+
+<div class="topbar">
+🌐 Jackson Poolblay Profile
+</div>
 
 <div class="header">
 
-<div class="profile-pic">
+<div class="photo">
 😎
 </div>
 
-<div class="profile-info">
+<div class="profile">
 
 <h1>Jackson Poolblay</h1>
 
 <p>
-🎮 Gamer • 🚀 Criador • 💻 Futuro Desenvolvedor
+🎮 Gamer<br>
+🚀 Criador de Projetos<br>
+💻 Futuro Desenvolvedor
 </p>
 
 <br>
@@ -275,98 +239,147 @@ margin:auto;
 
 </div>
 
-<div class="nav">
+<div class="menu">
 
 <a href="#">Sobre Mim</a>
-
 <a href="#">Jogos</a>
-
 <a href="#">Projetos</a>
-
 <a href="#">Tecnologias</a>
 
 </div>
 
-<div class="layout">
+<div class="content">
 
-<div class="sidebar"><div class="card">
+<div>
+  <div class="box">
 
-<h2>💿 Perfil</h2>
+<h2>📰 STATUS</h2>
 
-<p>📍 Recife - PE</p>
-<br>
-<p>🎓 Estudante do MEDIOTEC SENAC</p>
-<br>
-<p>🎮 Hobby principal: Jogar</p>
-<br>
-<p>🟢 Status: Online</p>
+<p>🟢 Online</p>
+<p>🎮 Jogando</p>
+<p>🚀 Desenvolvendo Projetos</p>
+<p>⭐ Aprendendo Novas Habilidades</p>
 
 </div>
 
-<div class="card">
+<br>
+
+<div class="box">
 
 <h2>🎮 Jogos Favoritos</h2>
 
-<div class="badge">Cuphead</div>
-<div class="badge">FNaF</div>
-<div class="badge">Counter-Strike</div>
-<div class="badge">Code</div>
-<div class="badge">Outros Jogos</div>
+<div class="buttons">
+
+<div class="aero-btn">🎮 Cuphead</div>
+
+<div class="aero-btn">🐻 FNaF</div>
+
+<div class="aero-btn">🔫 Counter-Strike</div>
+
+<div class="aero-btn">💻 Code</div>
+
+<div class="aero-btn">⭐ Entre Outros</div>
 
 </div>
 
-<div class="card">
+</div>
+
+<br>
+
+<div class="box">
 
 <h2>📊 Estatísticas</h2>
 
-<p>🎮 Projetos Atuais: 2</p>
+<p>👤 Visitantes: 00001</p>
 <br>
-<p>💡 Ideias: Muitas</p>
+<p>🚀 Projetos Atuais: 2</p>
 <br>
-<p>🚀 Sempre Aprendendo</p>
+<p>💡 Ideias em Desenvolvimento: Muitas</p>
 
 </div>
 
 </div>
 
-<div class="main">
+<div>
 
-<div class="card">
+<div class="box">
 
 <h2>👤 Sobre Mim</h2>
 
 <p>
-Meu nome é Jackson Poolblay Santos Silva. Sou um garoto com muitos objetivos e sonhos para o futuro. Gosto de aprender coisas novas, desenvolver minha criatividade e buscar novos desafios. No meu tempo livre, meu principal hobby é jogar videogame, atividade que me diverte e também me inspira em novas ideias para projetos.
+
+Meu nome é <strong>Jackson Poolblay Santos Silva</strong>.
+
+Sou um garoto com muitos objetivos e sonhos para o futuro. Gosto de aprender coisas novas, explorar minha criatividade e desenvolver projetos que transformem minhas ideias em realidade.
+
+Meu principal hobby é jogar videogame, algo que me diverte e também me inspira a criar novas experiências e desafios.
+
 </p>
 
 </div>
 
-<div class="card">
+<br>
+
+<div class="box">
 
 <h2>💻 Tecnologias que Desejo Aprender</h2>
 
 <p>
-Ainda estou explorando diferentes áreas da tecnologia para descobrir quais mais combinam comigo. Tenho interesse em programação, desenvolvimento de jogos, criação de sites e projetos digitais.
+
+Ainda estou descobrindo quais áreas da tecnologia mais combinam comigo. Tenho interesse em programação, desenvolvimento de jogos, criação de sites, design digital e outras áreas criativas relacionadas à tecnologia.
+
 </p>
 
 </div>
 
-<div class="card">
+<br>
 
-<h2>🚀 Projetos</h2>
+<div class="box">
+
+<h2>🚀 Projetos em Desenvolvimento</h2>
 
 <p>
-Atualmente estou trabalhando em dois projetos. O primeiro se chama <strong>Escape Nana</strong>, um projeto que está em desenvolvimento e recebendo melhorias constantes. Também estou criando um segundo projeto que ainda não possui um nome definido. Meu objetivo é continuar evoluindo essas ideias e transformá-las em projetos cada vez mais completos.
+
+Atualmente estou trabalhando em dois projetos.
+
+O primeiro se chama <strong>Escape Nana</strong>, um projeto que está sendo desenvolvido constantemente e recebendo novas ideias e melhorias.
+
+Também estou criando um segundo projeto que ainda não possui um nome definido, mas que futuramente poderá se tornar algo ainda maior.
+
+Meu objetivo é continuar evoluindo essas ideias e transformá-las em projetos completos e criativos.
+
 </p>
 
 </div>
 
-<div class="card">
+<br>
+
+<div class="box">
 
 <h2>⭐ Objetivos</h2>
 
 <p>
-Continuar aprendendo novas habilidades, desenvolver projetos criativos, expandir meus conhecimentos em tecnologia e transformar minhas ideias em experiências que possam ser compartilhadas com outras pessoas.
+
+Continuar aprendendo novas habilidades, aprimorar meus conhecimentos em tecnologia, criar projetos cada vez melhores e transformar minhas ideias em experiências que possam ser compartilhadas com outras pessoas.
+
+</p>
+
+</div>
+
+<br>
+
+<div class="box">
+
+<h2>💿 Interesses</h2>
+
+<p>
+
+🎮 Games<br>
+💻 Tecnologia<br>
+🎨 Criatividade<br>
+🚀 Desenvolvimento de Projetos<br>
+🌐 Internet e Cultura Digital
+
 </p>
 
 </div>
@@ -377,7 +390,7 @@ Continuar aprendendo novas habilidades, desenvolver projetos criativos, expandir
 
 <div class="footer">
 
-🌐 Jackson Poolblay Santos Silva • Aero Profile • 2026 🌐
+🌐 JACKSON POOLBLAY SANTOS SILVA • PROFILE WEB 2008 • FRUTIGER AERO EDITION 🌐
 
 </div>
 
