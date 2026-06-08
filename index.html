@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jackson Poolblay • Y2K Profile</title>
+
+<title>Jackson Poolblay - Aero Profile</title>
 
 <style>
 
@@ -14,66 +17,67 @@ box-sizing:border-box;
 }
 
 body{
+
 font-family:Tahoma,Verdana,sans-serif;
-color:white;
-overflow-x:hidden;
 
 background:
-radial-gradient(circle at top left,#00ffff55,transparent 20%),
-radial-gradient(circle at top right,#ff66ff55,transparent 20%),
-radial-gradient(circle at bottom,#ffffff22,transparent 25%),
-linear-gradient(135deg,#02122d,#2d004a,#070013);
+linear-gradient(
+180deg,
+#b8dcff 0%,
+#e8f5ff 40%,
+#ffffff 100%
+);
+
+color:#1d2b44;
 
 min-height:100vh;
-}
 
-body::before{
-content:"";
-position:fixed;
-inset:0;
-pointer-events:none;
-
-background-image:
-radial-gradient(#ffffff44 1px, transparent 1px);
-
-background-size:35px 35px;
 }
 
 .container{
-width:min(1300px,95%);
+
+width:min(1200px,95%);
 margin:auto;
-padding:30px;
+padding:20px;
+
 }
 
-.hero{
+.header{
 
-background:rgba(255,255,255,.08);
+background:white;
 
-backdrop-filter:blur(15px);
+border:4px solid #4b8eff;
 
-border:2px solid #00ffff;
+border-radius:25px;
 
-border-radius:35px;
+padding:25px;
 
-padding:35px;
+display:grid;
 
-text-align:center;
+grid-template-columns:250px 1fr;
+
+gap:25px;
 
 box-shadow:
-0 0 25px #00ffff55,
-0 0 50px #ff66ff33;
+0 0 15px rgba(0,100,255,.2);
 
-margin-bottom:25px;
+margin-bottom:20px;
+
 }
 
-.avatar{
+.profile-pic{
 
-width:180px;
-height:180px;
+width:220px;
+height:220px;
 
-margin:auto;
+border-radius:30px;
 
-border-radius:50%;
+background:
+linear-gradient(
+135deg,
+#d7ff8c,
+#84ff84
+);
 
 display:flex;
 align-items:center;
@@ -81,168 +85,164 @@ justify-content:center;
 
 font-size:90px;
 
-border:4px solid #00ffff;
+border:4px solid #84d600;
 
-background:
-linear-gradient(
-135deg,
-rgba(255,255,255,.25),
-rgba(255,255,255,.05)
-);
-
-box-shadow:
-0 0 20px #00ffff,
-0 0 40px #ff66ff;
 }
 
-.hero h1{
-
-margin-top:20px;
+.profile-info h1{
 
 font-size:3rem;
 
-background:
-linear-gradient(
-90deg,
-#00ffff,
-#ffffff,
-#ff66ff
-);
+color:#3a48c9;
 
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+margin-bottom:10px;
 
-text-shadow:
-0 0 15px #00ffff;
 }
 
-.hero p{
-margin-top:10px;
-color:#d7c9ff;
+.profile-info p{
+
+font-size:1.1rem;
+
+line-height:1.7;
+
 }
 
-.layout{
-display:grid;
-grid-template-columns:320px 1fr;
-gap:25px;
-}
+.nav{
 
-.sidebar{
+background:white;
 
-background:rgba(255,255,255,.08);
-
-border:2px solid #00ffff;
-
-border-radius:30px;
-
-padding:20px;
-
-backdrop-filter:blur(12px);
-
-box-shadow:
-0 0 20px #00ffff33;
-}
-
-.widget{
-
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(255,255,255,.15);
+border:4px solid #4b8eff;
 
 padding:15px;
 
 border-radius:20px;
 
-margin-bottom:15px;
+margin-bottom:20px;
+
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+
 }
 
-.widget h3{
-color:#00ffff;
-margin-bottom:10px;
-}
+.nav a{
 
-.profile-main{
+text-decoration:none;
 
-background:rgba(255,255,255,.08);
+color:#2b4fc9;
 
-border:2px solid #00ffff;
+font-weight:bold;
+
+padding:10px 20px;
 
 border-radius:30px;
 
-padding:25px;
+background:#e7f2ff;
 
-backdrop-filter:blur(12px);
-
-box-shadow:
-0 0 20px #ff66ff33;
 }
 
-.section{
+.layout{
 
-background:rgba(255,255,255,.05);
+display:grid;
+
+grid-template-columns:350px 1fr;
+
+gap:20px;
+
+}
+
+.sidebar{
+
+display:flex;
+flex-direction:column;
+gap:20px;
+
+}
+
+.card{
+
+background:white;
+
+border:3px solid #77a9ff;
+
+border-radius:20px;
+
+padding:20px;
+
+box-shadow:
+0 0 10px rgba(0,100,255,.1);
+
+}
+
+.card h2{
+
+color:#2d59d1;
+
+margin-bottom:15px;
+
+}
+
+.badge{
+
+display:inline-block;
+
+padding:10px 15px;
+
+margin:5px;
+
+border-radius:30px;
+
+background:
+linear-gradient(
+135deg,
+#d5ff77,
+#9cff9c
+);
+
+font-weight:bold;
+
+}
+
+.main{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.footer{
+
+margin-top:20px;
+
+background:white;
+
+border:3px solid #77a9ff;
 
 padding:20px;
 
 border-radius:20px;
 
-margin-bottom:20px;
-
-border:1px solid rgba(255,255,255,.12);
-}
-
-.section h2{
-color:#ff66ff;
-margin-bottom:12px;
-}
-
-.section p{
-line-height:1.8;
-}
-
-.badges{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-}
-
-.badge{
-
-padding:10px 16px;
-
-border-radius:50px;
-
-background:
-linear-gradient(
-135deg,
-#00ffff44,
-#ff66ff44
-);
-
-border:1px solid rgba(255,255,255,.3);
-
-font-weight:bold;
-}
-
-.footer{
-
-margin-top:25px;
-
 text-align:center;
 
-color:#cfcfcf;
 }
 
 @media(max-width:900px){
+
+.header{
+grid-template-columns:1fr;
+text-align:center;
+}
 
 .layout{
 grid-template-columns:1fr;
 }
 
-.hero h1{
-font-size:2rem;
+.profile-pic{
+margin:auto;
 }
 
 }
+
 </style>
 
 </head>
@@ -251,146 +251,122 @@ font-size:2rem;
 
 <div class="container">
 
-<div class="hero">
+<div class="header">
 
-<div class="avatar">😎</div>
+<div class="profile-pic">
+😎
+</div>
 
-<h1>JACKSON POOLBLAY</h1>
+<div class="profile-info">
 
-<p>★ GAMER • CRIADOR • SONHADOR • FUTURO DEV ★</p>
+<h1>Jackson Poolblay</h1>
+
+<p>
+🎮 Gamer • 🚀 Criador • 💻 Futuro Desenvolvedor
+</p>
+
+<br>
+
+<p>
+Último login: Hoje
+</p>
+
+</div>
+
+</div>
+
+<div class="nav">
+
+<a href="#">Sobre Mim</a>
+
+<a href="#">Jogos</a>
+
+<a href="#">Projetos</a>
+
+<a href="#">Tecnologias</a>
 
 </div>
 
 <div class="layout">
 
-<div class="sidebar">
+<div class="sidebar"><div class="card">
 
-<div class="widget">
-
-<h3>💿 PROFILE</h3>
+<h2>💿 Perfil</h2>
 
 <p>📍 Recife - PE</p>
-<p>🎓 MEDIOTEC SENAC</p>
-<p>🎮 Gamer</p>
+<br>
+<p>🎓 Estudante do MEDIOTEC SENAC</p>
+<br>
+<p>🎮 Hobby principal: Jogar</p>
+<br>
+<p>🟢 Status: Online</p>
 
 </div>
 
-<div class="widget">
+<div class="card">
 
-<h3>📀 STATUS</h3>
+<h2>🎮 Jogos Favoritos</h2>
 
-<p>🟢 Online</p>
-<p>🚀 Criando Projetos</p>
-<p>🎮 Jogando</p>
-
-</div>
-
-<div class="widget">
-
-<h3>🎵 NOW PLAYING</h3>
-
-<p>Y2K VIBES.mp3</p>
+<div class="badge">Cuphead</div>
+<div class="badge">FNaF</div>
+<div class="badge">Counter-Strike</div>
+<div class="badge">Code</div>
+<div class="badge">Outros Jogos</div>
 
 </div>
 
+<div class="card">
+
+<h2>📊 Estatísticas</h2>
+
+<p>🎮 Projetos Atuais: 2</p>
+<br>
+<p>💡 Ideias: Muitas</p>
+<br>
+<p>🚀 Sempre Aprendendo</p>
+
 </div>
 
-<div class="profile-main">
-  <div class="section">
+</div>
 
-<h2>✨ SOBRE MIM</h2>
+<div class="main">
+
+<div class="card">
+
+<h2>👤 Sobre Mim</h2>
 
 <p>
-Meu nome é Jackson Poolblay Santos Silva. Sou um garoto com muitos objetivos e sonhos para o futuro. Gosto de aprender coisas novas, desenvolver minha criatividade e transformar ideias em projetos. Meu principal hobby é jogar videogame, algo que me diverte e também me inspira a criar novas experiências e desafios.
+Meu nome é Jackson Poolblay Santos Silva. Sou um garoto com muitos objetivos e sonhos para o futuro. Gosto de aprender coisas novas, desenvolver minha criatividade e buscar novos desafios. No meu tempo livre, meu principal hobby é jogar videogame, atividade que me diverte e também me inspira em novas ideias para projetos.
 </p>
 
 </div>
 
-<div class="section">
+<div class="card">
 
-<h2>🎮 JOGOS FAVORITOS</h2>
-
-<div class="badges">
-
-<div class="badge">🎮 Cuphead</div>
-
-<div class="badge">🐻 FNaF</div>
-
-<div class="badge">🔫 Counter-Strike</div>
-
-<div class="badge">💻 Code</div>
-
-<div class="badge">⭐ Entre Outros</div>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<h2>💻 TECNOLOGIAS QUE DESEJO APRENDER</h2>
+<h2>💻 Tecnologias que Desejo Aprender</h2>
 
 <p>
-Ainda estou explorando diferentes áreas da tecnologia para descobrir quais mais combinam comigo. Tenho interesse em programação, desenvolvimento de jogos, criação de sites, design digital e outras áreas criativas relacionadas à tecnologia.
+Ainda estou explorando diferentes áreas da tecnologia para descobrir quais mais combinam comigo. Tenho interesse em programação, desenvolvimento de jogos, criação de sites e projetos digitais.
 </p>
 
 </div>
 
-<div class="section">
+<div class="card">
 
-<h2>🚀 PROJETOS EM DESENVOLVIMENTO</h2>
+<h2>🚀 Projetos</h2>
 
 <p>
-Atualmente estou trabalhando em dois projetos. O primeiro se chama <strong>Escape Nana</strong>, um projeto que está em constante desenvolvimento e recebendo melhorias frequentes. Também estou criando um segundo projeto que ainda não possui um nome definido. Meu objetivo é continuar evoluindo essas ideias e transformá-las em projetos completos e divertidos.
+Atualmente estou trabalhando em dois projetos. O primeiro se chama <strong>Escape Nana</strong>, um projeto que está em desenvolvimento e recebendo melhorias constantes. Também estou criando um segundo projeto que ainda não possui um nome definido. Meu objetivo é continuar evoluindo essas ideias e transformá-las em projetos cada vez mais completos.
 </p>
 
 </div>
 
-<div class="section">
+<div class="card">
 
-<h2>⭐ OBJETIVOS</h2>
-
-<p>
-Continuar aprendendo novas habilidades, desenvolver projetos cada vez melhores, expandir meus conhecimentos em tecnologia e transformar minha criatividade em experiências que possam ser compartilhadas com outras pessoas.
-</p>
-
-</div>
-
-<div class="section">
-
-<h2>💿 Y2K COLLECTION</h2>
-
-<div class="badges">
-
-<div class="badge">💿 Y2K</div>
-
-<div class="badge">✨ Frutiger Aero</div>
-
-<div class="badge">🌐 Internet</div>
-
-<div class="badge">🎧 Music</div>
-
-<div class="badge">🚀 Developer</div>
-
-<div class="badge">🎮 Gamer</div>
-
-<div class="badge">💖 Creativity</div>
-
-<div class="badge">⭐ Future</div>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<h2>📊 ESTATÍSTICAS</h2>
+<h2>⭐ Objetivos</h2>
 
 <p>
-🎮 Hobby favorito: Jogar<br>
-🚀 Projetos atuais: 2<br>
-💡 Ideias novas: Muitas<br>
-⭐ Motivação: Sempre evoluir
+Continuar aprendendo novas habilidades, desenvolver projetos criativos, expandir meus conhecimentos em tecnologia e transformar minhas ideias em experiências que possam ser compartilhadas com outras pessoas.
 </p>
 
 </div>
@@ -401,7 +377,7 @@ Continuar aprendendo novas habilidades, desenvolver projetos cada vez melhores, 
 
 <div class="footer">
 
-💿 JACKSON POOLBLAY SANTOS SILVA • Y2K PROFILE • 2026 💿
+🌐 Jackson Poolblay Santos Silva • Aero Profile • 2026 🌐
 
 </div>
 
