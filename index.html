@@ -3,336 +3,277 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MEDIOTEC SENAC - 1º ANO E - GITHUB E HTML</title>
+<title>Portfólio Y2K - Jackson Poolblay Santos Silva</title>
 
-<!-- 
-  [DICA DE CUSTOMIZAÇÃO]:
-  As variáveis abaixo controlam as cores de todo o painel.
-  Quer deixar o projeto com a sua cara? Experimente mudar os códigos hexadecimais (ex: #f58220)
-  para as cores que você mais gosta e veja o resultado no navegador!
--->
 <style>
-:root {
-  --bg-dark: #07111f;
-  --bg-panel: #0f1c2e;
-  --border-blue: #005ca9;
-  --neon-blue: #2f8cff;
-  --senac-orange: #f58220;
-  --text-main: #f5f8fc;
-  --text-muted: #9fb3c8;
-  --shadow-blue: rgba(0, 92, 169, 0.35);
+:root{
+  --pink:#ff4dff;
+  --cyan:#00ffff;
+  --white:#ffffff;
+  --panel:rgba(255,255,255,.08);
+  --text-muted:#d7c7ff;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
-  min-height: 100vh;
-  font-family: "Courier New", monospace;
-  color: var(--text-main);
-  background: radial-gradient(circle at center, #0c1c35 0%, var(--bg-dark) 70%);
-  padding: 24px;
+body{
+  min-height:100vh;
+  padding:25px;
+  font-family:Verdana,sans-serif;
+  color:white;
+
+  background:
+  radial-gradient(circle at top left,#ff4dff 0%,transparent 25%),
+  radial-gradient(circle at top right,#00ffff 0%,transparent 25%),
+  linear-gradient(135deg,#0d0218,#1b0430,#090015);
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, .25) 50%);
-  background-size: 100% 4px;
-  opacity: .15;
-  pointer-events: none;
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:
+  linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size:25px 25px;
+  pointer-events:none;
 }
 
-.shell {
-  width: min(1400px, 100%);
-  margin: auto;
+.container{
+  max-width:1300px;
+  margin:auto;
 }
 
-.dashboard {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 24px;
+.dashboard{
+  display:grid;
+  grid-template-columns:300px 1fr;
+  gap:25px;
 }
 
-.sidebar {
-  background: var(--bg-panel);
-  border: 2px solid var(--border-blue);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, .5);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  position: relative;
+.sidebar{
+  background:var(--panel);
+  backdrop-filter:blur(15px);
+  border:2px solid var(--cyan);
+  border-radius:30px;
+  padding:25px;
+
+  box-shadow:
+  0 0 20px rgba(255,77,255,.5),
+  0 0 40px rgba(0,255,255,.3);
 }
 
-.sidebar::before {
-  content: "MISSION_STATUS: ONLINE";
-  position: absolute;
-  bottom: 12px;
-  left: 20px;
-  font-size: .7rem;
-  color: var(--senac-orange);
-  letter-spacing: 1px;
+.logo{
+  text-align:center;
 }
 
-.system-title {
-  font-size: 1.8rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.logo h1{
+  color:var(--pink);
+  text-shadow:
+  0 0 10px var(--pink),
+  0 0 25px var(--cyan);
 }
 
-.system-title span {
-  display: inline-block;
-  width: max-content;
-  color: var(--senac-orange);
-  border: 1px solid var(--senac-orange);
-  padding: 4px 8px;
-  font-size: .8rem;
+.logo p{
+  margin-top:10px;
+  color:var(--text-muted);
 }
 
-.system-title span.location {
-  color: #fff;
-  border-color: var(--border-blue);
-  background-color: var(--border-blue);
+.avatar{
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  border:3px solid var(--cyan);
+  margin:25px auto;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-size:70px;
+  background:rgba(255,255,255,.08);
 }
 
-.sys-stat-box {
-  border-left: 3px solid var(--border-blue);
-  padding-left: 12px;
-  color: var(--text-muted);
-  font-size: .85rem;
+.info-box{
+  background:rgba(0,0,0,.25);
+  border:1px solid var(--cyan);
+  border-radius:15px;
+  padding:15px;
+  margin-bottom:15px;
 }
 
-.sys-stat-box div {
-  margin-bottom: 8px;
+.main{
+  background:var(--panel);
+  backdrop-filter:blur(15px);
+  border:2px solid var(--cyan);
+  border-radius:30px;
+  padding:35px;
+
+  box-shadow:
+  0 0 20px rgba(0,255,255,.3),
+  0 0 40px rgba(255,77,255,.2);
 }
 
-.sys-stat-box b {
-  color: var(--text-main);
+.header{
+  text-align:center;
+  margin-bottom:30px;
 }
 
-.main-console {
-  background: var(--bg-panel);
-  border: 2px solid var(--border-blue);
-  box-shadow: 0 12px 40px var(--shadow-blue);
-  padding: 35px;
+.header h2{
+  color:var(--pink);
+
+  text-shadow:
+  0 0 10px var(--pink),
+  0 0 25px var(--cyan);
 }
 
-.console-header {
-  border-bottom: 1px solid var(--border-blue);
-  margin-bottom: 25px;
-  padding-bottom: 15px;
+.section{
+  background:rgba(0,0,0,.25);
+  border:1px solid var(--cyan);
+  border-radius:20px;
+  padding:20px;
+  margin-bottom:20px;
 }
 
-.console-header h2 {
-  color: var(--senac-orange);
-  text-transform: uppercase;
-  letter-spacing: 2px;
+.section h3{
+  color:var(--cyan);
+  margin-bottom:10px;
 }
 
-.console-manifesto {
-  background: rgba(0, 0, 0, .35);
-  border: 1px solid var(--border-blue);
-  padding: 25px;
-  line-height: 1.8;
-  margin-bottom: 30px;
+.section p,
+.section li{
+  line-height:1.8;
 }
 
-.console-manifesto ul {
-  margin-top: 15px;
-  margin-left: 20px;
+.badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
-.console-manifesto li {
-  margin-bottom: 8px;
+.badge{
+  padding:8px 15px;
+  border-radius:50px;
+  border:1px solid var(--pink);
+  background:rgba(255,77,255,.2);
 }
 
-.section-label {
-  color: var(--text-muted);
-  font-size: .75rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 15px;
+.footer{
+  text-align:center;
+  color:var(--text-muted);
+  margin-top:30px;
 }
 
-.action-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.action-btn {
-  background: #09111d;
-  border: 2px solid var(--border-blue);
-  color: white;
-  padding: 18px;
-  min-height: 90px;
-  cursor: pointer;
-  text-align: left;
-  transition: .2s;
-  position: relative;
-}
-
-.action-btn:hover {
-  border-color: var(--senac-orange);
-  transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(245, 130, 32, .25);
-}
-
-.action-btn::after {
-  content: "//";
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--neon-blue);
-}
-
-.action-btn:hover::after {
-  color: var(--senac-orange);
-}
-
-.btn-title {
-  display: block;
-  font-weight: 900;
-  margin-bottom: 6px;
-}
-
-.btn-subtitle {
-  color: var(--text-muted);
-  font-size: .8rem;
-}
-
-.footer-box {
-  margin-top: 30px;
-  border-top: 1px solid var(--border-blue);
-  padding-top: 20px;
-  color: var(--text-muted);
-  line-height: 1.7;
-}
-
-@media(max-width: 900px) {
-  .dashboard {
-    grid-template-columns: 1fr;
-  }
-  .action-grid {
-    grid-template-columns: 1fr;
+@media(max-width:900px){
+  .dashboard{
+    grid-template-columns:1fr;
   }
 }
 </style>
 </head>
+
 <body>
 
-<!-- [ESTRUTURA DO DASHBOARD] Toda a interface do console está contida dentro da tag <main> -->
-<main class="shell">
-  <div class="dashboard">
+<div class="container">
 
-    <!-- BARRA LATERAL: Identificação do Curso, Professor e Status da Missão -->
-    <aside class="sidebar">
-      <h1 class="system-title">
-        MEDIOTEC SENAC
-        <span class="location">Recife</span>
-        <span>1º ANO E</span>
-      </h1>
+<div class="dashboard">
 
-      <div class="sys-stat-box">
-        <div>PROFESSOR: <b>LUIZ CAVALCANTI</b></div>
-        <div>MISSÃO: <b>GITHUB + HTML</b></div>
-      </div>
+<aside class="sidebar">
 
-      <div class="sys-stat-box" style="margin-top: auto; margin-bottom: 25px;">
-        <div>
-          Sua missão é criar seu primeiro portfólio online utilizando HTML, GitHub e GitHub Pages.
-        </div>
-      </div>
-    </aside>
+<div class="logo">
+<h1>Y2K PROFILE</h1>
+<p>MEDIOTEC SENAC • 1º ANO E</p>
+</div>
 
-    <!-- CONSOLE PRINCIPAL: Onde estão os objetivos e o checklist do projeto -->
-    <section class="main-console">
-      <header class="console-header">
-        
-        <!-- [AÇÃO REQUERIDA]: Apague o texto entre colchetes abaixo e digite o seu nome completo -->
-        <h2>MISSÃO 01 // MEU PRIMEIRO PORTFÓLIO - [DIGITE SEU NOME AQUI]</h2>
-      
-      </header>
+<div class="avatar">😎</div>
 
-      <div class="console-manifesto">
-        <strong>OBJETIVO</strong>
-        <br><br>
-        Criar uma página pessoal utilizando HTML e CSS.
-        <br><br>
-        O portfólio deverá conter:
-        
-        <!-- [CHECKLIST]: Lembre-se de criar tags HTML correspondentes para cada um destes itens no seu arquivo final -->
-        <ul>
-          <li>Nome completo</li>
-          <li>Apresentação pessoal</li>
-          <li>Jogos favoritos</li>
-          <li>Tecnologias que deseja aprender</li>
-          <li>Projetos em que já trabalhou/está trabalhando</li>
-        </ul>
-        <br>
-        Após concluir, publique o site utilizando GitHub Pages.
-      </div>
+<div class="info-box">
+<b>Nome:</b><br>
+Jackson Poolblay Santos Silva
+</div>
 
-      <div class="section-label">
-        [ ETAPAS DA MISSÃO ]
-      </div>
+<div class="info-box">
+<b>Cidade:</b><br>
+Recife - PE
+</div>
 
-      <!-- 
-        [DICA DE CÓDIGO]: 
-        Estes botões representam o seu fluxo de trabalho. 
-        À medida que avançarmos na aula, você aprenderá a usar a tag <a> para transformar
-        esses botões em links reais que abrem o seu repositório ou o site do GitHub!
-      -->
-      <div class="action-grid">
-        <button class="action-btn">
-          <span class="btn-title">ETAPA 01</span>
-          <span class="btn-subtitle">CRIAR CONTA NO GITHUB</span>
-        </button>
+<div class="info-box">
+<b>Status:</b><br>
+Desenvolvendo novos projetos 🚀
+</div>
 
-        <button class="action-btn">
-          <span class="btn-title">ETAPA 02</span>
-          <span class="btn-subtitle">CRIAR REPOSITÓRIO</span>
-        </button>
+</aside>
 
-        <button class="action-btn">
-          <span class="btn-title">ETAPA 03</span>
-          <span class="btn-subtitle">CRIAR INDEX.HTML</span>
-        </button>
+<main class="main">
 
-        <button class="action-btn">
-          <span class="btn-title">ETAPA 04</span>
-          <span class="btn-subtitle">REALIZAR PRIMEIRO COMMIT</span>
-        </button>
+<div class="header">
+<h2>MEU PRIMEIRO PORTFÓLIO</h2>
+</div>
+<div class="section">
+<h3>👤 Apresentação Pessoal</h3>
 
-        <button class="action-btn">
-          <span class="btn-title">ETAPA 05</span>
-          <span class="btn-subtitle">PUBLICAR NO GITHUB PAGES</span>
-        </button>
-      </div>
+<p>
+Sou Jackson Poolblay Santos Silva. Sou um garoto com muitos objetivos e sonhos para o futuro. Gosto de aprender coisas novas, desenvolver minha criatividade e buscar novos desafios. No meu tempo livre, meu principal hobby é jogar videogame, atividade que me diverte e também me inspira em novas ideias para projetos.
+</p>
 
-      <div class="footer-box">
-        <strong>DESAFIO EXTRA</strong>
-        <br><br>
-        
-        <!-- [UPGRADE]: Quer ir além? Tente implementar os itens abaixo para subir o nível do seu portfólio! -->
-        ✔ Adicione uma foto ou avatar.<br>
-        ✔ Inclua uma seção "Projetos do Curso".<br>
-        ✔ Adicione links para GitHub e redes sociais.<br>
-        ✔ Crie um design único para seu portfólio.
-      </div>
-    </section>
+</div>
 
-  </div>
+<div class="section">
+
+<h3>🎮 Jogos Favoritos</h3>
+
+<div class="badges">
+<span class="badge">Cuphead</span>
+<span class="badge">Five Nights at Freddy's</span>
+<span class="badge">Counter-Strike</span>
+<span class="badge">Code</span>
+<span class="badge">Outros Jogos</span>
+</div>
+
+</div>
+
+<div class="section">
+
+<h3>💻 Tecnologias que Desejo Aprender</h3>
+
+<p>
+Ainda estou explorando diferentes áreas da tecnologia para descobrir quais mais combinam comigo. Tenho interesse em programação, desenvolvimento de jogos, design digital e criação de projetos criativos para a internet.
+</p>
+
+</div>
+
+<div class="section">
+
+<h3>🚀 Projetos em Desenvolvimento</h3>
+
+<p>
+Atualmente estou trabalhando em dois projetos. O primeiro se chama <strong>Escape Nana</strong>, um projeto que estou desenvolvendo e aprimorando constantemente. Também estou criando um segundo projeto que ainda não possui um nome definido. Meu objetivo é continuar evoluindo essas ideias, adquirir mais experiência e transformá-las em projetos cada vez maiores e melhores.
+</p>
+
+</div>
+
+<div class="section">
+
+<h3>⭐ Objetivos</h3>
+
+<p>
+Meu objetivo é continuar aprendendo sobre tecnologia, desenvolver projetos cada vez mais criativos e adquirir conhecimentos que possam me ajudar tanto nos estudos quanto em futuras oportunidades profissionais.
+</p>
+
+</div>
+
+<div class="footer">
+© 2026 • Portfólio de Jackson Poolblay Santos Silva
+</div>
+
 </main>
+
+</div>
+
+</div>
 
 </body>
 </html>
