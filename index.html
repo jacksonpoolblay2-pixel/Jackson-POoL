@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jackson Poolblay • Gothic Profile</title>
+
+<title>Jackson Poolblay Santos Silva</title>
 
 <style>
 
@@ -16,87 +19,81 @@ box-sizing:border-box;
 body{
 
 background:
-radial-gradient(circle at center,
-#2d001f 0%,
-#12000c 40%,
+radial-gradient(circle at top,
+#2a0000 0%,
+#0f0000 30%,
+#050505 70%,
 #000000 100%);
 
-font-family:Verdana,sans-serif;
+font-family:Georgia,serif;
 
-color:white;
+color:#d6d6d6;
 
 overflow-x:hidden;
 
-min-height:100vh;
-
 }
 
-/* OLHOS */
+/* OLHOS GIGANTES */
 
 .eye{
 
 position:fixed;
 
-font-size:220px;
+width:350px;
+height:200px;
 
-opacity:.15;
+border-radius:50%;
 
-filter:grayscale(100%);
+background:
+radial-gradient(circle,
+#ffffff 0%,
+#cfcfcf 30%,
+#550000 55%,
+#000000 100%);
+
+opacity:.12;
+
+filter:blur(2px);
 
 z-index:0;
 
 }
 
 .eye-left{
-
-left:-30px;
-top:120px;
-
+left:-100px;
+top:150px;
 }
 
 .eye-right{
-
-right:-30px;
-top:180px;
-
+right:-100px;
+top:250px;
 }
 
-/* LUAS */
+/* ROSAS */
 
-.moon{
+.rose{
 
 position:fixed;
-
-right:60px;
-top:40px;
 
 font-size:120px;
 
-opacity:.8;
+opacity:.08;
+
+z-index:0;
 
 }
 
-/* CORRENTES */
-
-.chain{
-
-position:fixed;
-
-font-size:80px;
-
-opacity:.25;
-
+.rose1{
+top:80px;
+right:50px;
 }
 
-.chain1{
-left:40px;
-top:500px;
+.rose2{
+bottom:80px;
+left:50px;
 }
 
-.chain2{
-right:40px;
-top:600px;
-}
+/* CONTAINER */
 
 .wrapper{
 
@@ -104,7 +101,7 @@ position:relative;
 
 z-index:5;
 
-width:min(1300px,95%);
+width:min(1400px,95%);
 
 margin:auto;
 
@@ -112,49 +109,41 @@ padding:30px;
 
 }
 
-/* TOPO */
+/* HEADER */
 
 .hero{
 
 background:
 linear-gradient(
 180deg,
-rgba(30,0,20,.95),
+rgba(20,0,0,.95),
 rgba(0,0,0,.95)
 );
 
-border:3px solid #6a003f;
+border:2px solid #5c0000;
 
-border-radius:30px;
-
-padding:25px;
+padding:30px;
 
 display:grid;
 
-grid-template-columns:350px 1fr;
+grid-template-columns:420px 1fr;
 
-gap:30px;
+gap:40px;
 
 box-shadow:
-0 0 30px #700040;
+0 0 40px rgba(120,0,0,.4);
 
-margin-bottom:25px;
+margin-bottom:30px;
 
 }
 
-/* FOTO */
-
 .avatar{
 
-height:420px;
-
-border-radius:30px;
+height:520px;
 
 overflow:hidden;
 
-border:4px solid #8d0054;
-
-position:relative;
+border:3px solid #720000;
 
 }
 
@@ -166,37 +155,31 @@ height:100%;
 object-fit:cover;
 
 filter:
+grayscale(100%)
 contrast(120%)
 brightness(.8);
 
 }
 
-.avatar::after{
+.hero-info{
 
-content:"✦";
-
-position:absolute;
-
-font-size:80px;
-
-right:20px;
-top:20px;
-
-color:white;
-
-text-shadow:
-0 0 20px crimson;
+display:flex;
+flex-direction:column;
+justify-content:center;
 
 }
 
 .hero-info h1{
 
-font-size:4rem;
+font-size:5rem;
 
-color:#ff4fa3;
+color:#8d0000;
 
-text-shadow:
-0 0 20px #ff0088;
+letter-spacing:5px;
+
+margin-bottom:20px;
+
+text-transform:uppercase;
 
 }
 
@@ -204,11 +187,11 @@ text-shadow:
 
 font-size:1.2rem;
 
-line-height:2;
-
-margin-top:15px;
+line-height:2.2;
 
 }
+
+/* MENU */
 
 .menu{
 
@@ -220,7 +203,7 @@ gap:15px;
 
 flex-wrap:wrap;
 
-margin-bottom:25px;
+margin-bottom:30px;
 
 }
 
@@ -228,27 +211,31 @@ margin-bottom:25px;
 
 text-decoration:none;
 
-padding:14px 30px;
+color:#d6d6d6;
 
-background:
-linear-gradient(
-180deg,
-#590030,
-#2c0017
-);
+padding:15px 30px;
 
-border:2px solid #ff4fa3;
+background:#0c0c0c;
 
-border-radius:30px;
+border:1px solid #700000;
 
-color:white;
+text-transform:uppercase;
 
-font-weight:bold;
+letter-spacing:2px;
 
-box-shadow:
-0 0 15px #ff0088;
+transition:.3s;
 
 }
+
+.menu a:hover{
+
+background:#300000;
+
+box-shadow:0 0 20px #700000;
+
+}
+
+/* GRID */
 
 .layout{
 
@@ -262,27 +249,26 @@ gap:25px;
 
 .card{
 
-background:
-rgba(20,0,10,.95);
+background:#080808;
 
-border:2px solid #6f003d;
+border:1px solid #500000;
 
-border-radius:25px;
-
-padding:20px;
+padding:25px;
 
 margin-bottom:20px;
 
 box-shadow:
-0 0 20px rgba(255,0,120,.15);
+0 0 15px rgba(120,0,0,.15);
 
 }
 
 .card h2{
 
-color:#ff75b8;
+color:#9e0000;
 
 margin-bottom:15px;
+
+font-size:2rem;
 
 }
 
@@ -290,66 +276,50 @@ margin-bottom:15px;
 
 display:inline-block;
 
-padding:10px 15px;
+padding:10px 16px;
 
 margin:5px;
 
-background:#320018;
+border:1px solid #700000;
 
-border:1px solid #ff4fa3;
-
-border-radius:20px;
+background:#140000;
 
 }
-  .footer{
 
-margin-top:25px;
+.main{
 
-padding:25px;
+display:flex;
+flex-direction:column;
+gap:20px;
+
+}.footer{
+
+margin-top:30px;
+
+padding:30px;
 
 text-align:center;
 
-background:
-linear-gradient(
-180deg,
-#1a0010,
-#000000
-);
+border-top:2px solid #5c0000;
 
-border:2px solid #ff4fa3;
+color:#8d0000;
 
-border-radius:25px;
+letter-spacing:4px;
 
-box-shadow:
-0 0 25px #ff0088;
+font-size:1.1rem;
 
 }
 
-.floating-bat{
+.counter{
 
-position:fixed;
+font-size:3rem;
 
-font-size:60px;
+color:#8d0000;
 
-opacity:.25;
+text-align:center;
 
-z-index:0;
+margin-top:10px;
 
-}
-
-.bat1{
-top:100px;
-left:300px;
-}
-
-.bat2{
-top:250px;
-right:250px;
-}
-
-.bat3{
-bottom:100px;
-left:200px;
 }
 
 @media(max-width:900px){
@@ -363,7 +333,7 @@ grid-template-columns:1fr;
 }
 
 .hero-info h1{
-font-size:2.5rem;
+font-size:3rem;
 }
 
 .eye{
@@ -373,21 +343,16 @@ display:none;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="eye eye-left">👁️</div>
-<div class="eye eye-right">👁️</div>
+<div class="eye eye-left"></div>
+<div class="eye eye-right"></div>
 
-<div class="moon">🌙</div>
-
-<div class="chain chain1">⛓️</div>
-<div class="chain chain2">⛓️</div>
-
-<div class="floating-bat bat1">🦇</div>
-<div class="floating-bat bat2">🦇</div>
-<div class="floating-bat bat3">🦇</div>
+<div class="rose rose1">🥀</div>
+<div class="rose rose2">🥀</div>
 
 <div class="wrapper">
 
@@ -395,25 +360,22 @@ display:none;
 
 <div class="avatar">
 
-<img src="https://images.unsplash.com/photo-1546961329-78bef0414d7c?w=1200">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43b?w=1200">
 
 </div>
 
 <div class="hero-info">
 
-<h1>JACKSON POOLBLAY</h1>
+<h1>Jackson Poolblay</h1>
 
 <p>
-🦇 Gothic Gamer<br>
-🎮 Criador de Projetos<br>
-🌙 Sonhador Noturno<br>
-💀 Futuro Desenvolvedor
+Estudante • Criador • Gamer
 </p>
 
 <br>
 
 <p>
-🟢 Status: ONLINE
+Status: ONLINE
 </p>
 
 </div>
@@ -422,11 +384,10 @@ display:none;
 
 <div class="menu">
 
-<a href="#">Sobre Mim</a>
+<a href="#">Sobre</a>
 <a href="#">Jogos</a>
 <a href="#">Projetos</a>
 <a href="#">Tecnologias</a>
-<a href="#">Contato</a>
 
 </div>
 
@@ -436,19 +397,19 @@ display:none;
 
 <div class="card">
 
-<h2>💀 Perfil</h2>
+<h2>Perfil</h2>
 
 <p>📍 Recife - PE</p>
 <br>
 <p>🎓 MEDIOTEC SENAC</p>
 <br>
-<p>🦇 Estilo: Gothic Web</p>
+<p>🎮 Hobby Principal: Jogar</p>
 
 </div>
 
 <div class="card">
 
-<h2>🎮 Jogos Favoritos</h2>
+<h2>Jogos Favoritos</h2>
 
 <div class="badge">Cuphead</div>
 <div class="badge">FNaF</div>
@@ -460,31 +421,29 @@ display:none;
 
 <div class="card">
 
-<h2>📊 Contador Sombrio</h2>
+<h2>Visitantes</h2>
 
-<h1 style="color:#ff4fa3;">
-0666666
-</h1>
-
-<p>Almas Perdidas Visitando...</p>
-
+<div class="counter">
+00666
 </div>
 
 </div>
 
-<div>
+</div>
+
+<div class="main">
 
 <div class="card">
 
-<h2>🌙 Sobre Mim</h2>
+<h2>Sobre Mim</h2>
 
 <p>
 
 Meu nome é Jackson Poolblay Santos Silva.
 
-Sou um garoto com muitos objetivos para o futuro. Gosto de aprender coisas novas, criar projetos criativos e desenvolver minhas habilidades.
+Sou um garoto com muitos objetivos para o futuro e estou sempre buscando aprender coisas novas. Gosto de desenvolver minha criatividade, criar projetos e transformar ideias em algo real.
 
-Meu principal hobby é jogar videogame, atividade que me inspira a explorar novas ideias e desafios.
+Meu principal hobby é jogar videogame, atividade que me inspira e me ajuda a desenvolver novas ideias.
 
 </p>
 
@@ -492,13 +451,13 @@ Meu principal hobby é jogar videogame, atividade que me inspira a explorar nova
 
 <div class="card">
 
-<h2>💻 Tecnologias</h2>
+<h2>Tecnologias</h2>
 
 <p>
 
 Ainda estou explorando diferentes áreas da tecnologia para descobrir quais mais combinam comigo.
 
-Tenho interesse em programação, desenvolvimento de jogos, criação de sites e projetos digitais.
+Tenho interesse em programação, criação de sites, desenvolvimento de jogos e projetos digitais.
 
 </p>
 
@@ -506,15 +465,15 @@ Tenho interesse em programação, desenvolvimento de jogos, criação de sites e
 
 <div class="card">
 
-<h2>🚀 Escape Nana</h2>
+<h2>Projetos</h2>
 
 <p>
 
 Atualmente estou trabalhando em dois projetos.
 
-O principal deles é Escape Nana, um projeto que está em constante desenvolvimento e recebendo novas ideias.
+O principal deles é Escape Nana, um projeto em constante desenvolvimento.
 
-Também estou criando outro projeto que ainda não possui um nome definido.
+Também estou criando outro projeto que ainda não possui um nome definido, mas que já está recebendo novas ideias e planejamentos.
 
 </p>
 
@@ -522,25 +481,13 @@ Também estou criando outro projeto que ainda não possui um nome definido.
 
 <div class="card">
 
-<h2>⭐ Objetivos</h2>
+<h2>Objetivos</h2>
 
 <p>
 
-Continuar evoluindo, aprender novas habilidades e transformar minhas ideias em projetos cada vez maiores.
+Continuar aprendendo, evoluindo minhas habilidades, desenvolvendo projetos criativos e transformando minhas ideias em experiências cada vez maiores.
 
 </p>
-
-</div>
-
-<div class="card">
-
-<h2>🦇 Interesses</h2>
-
-<div class="badge">🎮 Games</div>
-<div class="badge">💻 Tecnologia</div>
-<div class="badge">🌙 Criatividade</div>
-<div class="badge">🚀 Projetos</div>
-<div class="badge">⭐ Futuro</div>
 
 </div>
 
@@ -550,11 +497,11 @@ Continuar evoluindo, aprender novas habilidades e transformar minhas ideias em p
 
 <div class="footer">
 
-🦇 🌙 ✦ JACKSON POOLBLAY SANTOS SILVA ✦ 🌙 🦇
+JACKSON POOLBLAY SANTOS SILVA
 
 <br><br>
 
-💀 GOTHIC WEB PROFILE • DARK MYSPACE • 2007 VIBES 💀
+GOTHIC PROFILE • DARK WEB STYLE • MMXXVI
 
 </div>
 
