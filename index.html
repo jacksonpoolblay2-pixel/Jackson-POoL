@@ -15,6 +15,11 @@
             --background: #f4f4f9;
         }
 
+        /* Cursor Customizado: Cruz com Círculo (Inspirado na Bandeira de Olinda) */
+        * {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><circle cx='16' cy='16' r='5' fill='%23ffcc00'/><path d='M16 2 L16 30 M2 16 L30 16' stroke='%23cc0000' stroke-width='3'/></svg>") 16 16, auto;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -65,7 +70,6 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
             border: 3px solid transparent;
         }
 
@@ -76,17 +80,22 @@
         }
 
         .thumb-jogo {
-            height: 180px;
+            height: 140px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 3.5rem;
             color: white;
         }
 
         .bg-rua { background: linear-gradient(45deg, #555, #777); }
         .bg-rampa { background: linear-gradient(45deg, var(--verde-olinda), #2ecc71); }
         .bg-esgoto { background: linear-gradient(45deg, #8b5a2b, #a0522d); }
+        .bg-lixo { background: linear-gradient(45deg, #e67e22, #f39c12); }
+        .bg-ilumina { background: linear-gradient(45deg, #111, #333); }
+        .bg-arvores { background: linear-gradient(45deg, #16a085, #27ae60); }
+        .bg-alagamento { background: linear-gradient(45deg, #2980b9, #3498db); }
+        .bg-patrimonio { background: linear-gradient(45deg, #9b59b6, #8e44ad); }
 
         .info-jogo {
             padding: 15px;
@@ -104,7 +113,7 @@
             color: #666;
         }
 
-        /* Área do Jogo Ativo (Modal/Container) */
+        /* Área do Jogo Ativo */
         .arena-jogo {
             display: none;
             background-color: var(--branco);
@@ -123,11 +132,9 @@
             padding: 10px 20px;
             border-radius: 5px;
             font-weight: bold;
-            cursor: pointer;
             margin-bottom: 15px;
         }
 
-        /* Telas dos Minijogos */
         canvas {
             background-color: #eee;
             display: block;
@@ -145,7 +152,6 @@
             position: relative;
             overflow: hidden;
             border-radius: 8px;
-            cursor: pointer;
         }
 
         .buraco {
@@ -160,6 +166,32 @@
             color: white;
             font-size: 0.7rem;
             font-weight: bold;
+        }
+
+        /* Estilos do tabuleiro de Canos (Saneamento) */
+        .pipe-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 80px);
+            gap: 10px;
+            justify-content: center;
+            margin: 20px auto;
+            background-color: #34495e;
+            padding: 15px;
+            border-radius: 10px;
+            width: fit-content;
+        }
+
+        .pipe-cell {
+            width: 80px;
+            height: 80px;
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            transition: transform 0.2s;
+            user-select: none;
         }
 
         /* Rodapé */
@@ -192,7 +224,7 @@
             <div class="card-jogo" onclick="iniciarJogo('rua')">
                 <div class="thumb-jogo bg-rua">🚧</div>
                 <div class="info-jogo">
-                    <h3>Operação Tapa-Buraco</h3>
+                    <h3>1. Operação Tapa-Buraco</h3>
                     <p>As ladeiras históricas precisam de reparos! Clique rápido nos buracos para asfaltar.</p>
                 </div>
             </div>
@@ -200,16 +232,56 @@
             <div class="card-jogo" onclick="iniciarJogo('rampa')">
                 <div class="thumb-jogo bg-rampa">♿</div>
                 <div class="info-jogo">
-                    <h3>Rampa de Acessibilidade</h3>
+                    <h3>2. Rampa de Acessibilidade</h3>
                     <p>Ajude a construir rampas guiando o cadeirante com segurança pelas calçadas.</p>
                 </div>
             </div>
 
-            <div class="card-jogo">
+            <div class="card-jogo" onclick="iniciarJogo('esgoto')">
                 <div class="thumb-jogo bg-esgoto">💧</div>
                 <div class="info-jogo">
-                    <h3>Saneamento Já!</h3>
-                    <p><i>Em breve: Conecte os encanamentos para limpar as águas de Olinda.</i></p>
+                    <h3>3. Saneamento Já!</h3>
+                    <p>Gire os encanamentos para conectar a rede de água tratada até as casas em Olinda.</p>
+                </div>
+            </div>
+
+            <div class="card-jogo" onclick="iniciarJogo('lixo')">
+                <div class="thumb-jogo bg-lixo">♻️</div>
+                <div class="info-jogo">
+                    <h3>4. Coleta Seletiva na Ladeira</h3>
+                    <p>Mova as lixeiras corretas para coletar os resíduos recicláveis que caem nas ruas.</p>
+                </div>
+            </div>
+
+            <div class="card-jogo" onclick="iniciarJogo('ilumina')">
+                <div class="thumb-jogo bg-ilumina">💡</div>
+                <div class="info-jogo">
+                    <h3>5. Iluminação Pública</h3>
+                    <p>Clique nos postes apagados do Carmo para restaurar a energia e a segurança noturna.</p>
+                </div>
+            </div>
+
+            <div class="card-jogo" onclick="iniciarJogo('arvores')">
+                <div class="thumb-jogo bg-arvores">🌳</div>
+                <div class="info-jogo">
+                    <h3>6. Refloresta Olinda</h3>
+                    <p>Plante árvores nativas nos espaços urbanos para combater as ilhas de calor.</p>
+                </div>
+            </div>
+
+            <div class="card-jogo" onclick="iniciarJogo('alagamento')">
+                <div class="thumb-jogo bg-alagamento">🌊</div>
+                <div class="info-jogo">
+                    <h3>7. Contra Alagamentos</h3>
+                    <p>Limpe os bueiros e canais obstruídos sugando as folhas antes da chuva apertar.</p>
+                </div>
+            </div>
+
+            <div class="card-jogo" onclick="iniciarJogo('patrimonio')">
+                <div class="thumb-jogo bg-patrimonio">🏛️</div>
+                <div class="info-jogo">
+                    <h3>8. Restauro Histórico</h3>
+                    <p>Remova as pichações e restaure as fachadas históricas protegendo a identidade local.</p>
                 </div>
             </div>
 
@@ -226,7 +298,7 @@
         const tituloJogo = document.getElementById('titulo-jogo-atual');
         const conteudoJogo = document.getElementById('conteudo-jogo');
         
-        let jogoLoopInterval; // Para limpar processos do jogo anterior
+        let jogoLoopInterval;
 
         function fecharJogo() {
             arena.style.display = 'none';
@@ -246,158 +318,367 @@
             } else if (tipo === 'rampa') {
                 tituloJogo.innerText = "Missão Acessibilidade Olinda";
                 carregarJogoRampa();
+            } else if (tipo === 'esgoto') {
+                tituloJogo.innerText = "Saneamento Já! Encanamento Urbano";
+                carregarJogoEsgoto();
+            } else if (tipo === 'lixo') {
+                tituloJogo.innerText = "Coleta Seletiva nas Ladeiras";
+                carregarJogoLixo();
+            } else if (tipo === 'ilumina') {
+                tituloJogo.innerText = "Iluminação no Sítio Histórico";
+                carregarJogoIlumina();
+            } else if (tipo === 'arvores') {
+                tituloJogo.innerText = "Mais Verde em Marim dos Caetés";
+                carregarJogoArvores();
+            } else if (tipo === 'alagamento') {
+                tituloJogo.innerText = "Desobstrução de Canais e Bueiros";
+                carregarJogoAlagamento();
+            } else if (tipo === 'patrimonio') {
+                tituloJogo.innerText = "Zeladoria e Restauro do Patrimônio";
+                carregarJogoPatrimonio();
             }
         }
 
         // ==========================================
-        // JOGO 1: TAPA BURACO (Mecânica de Clique)
+        // JOGO 1: TAPA BURACO
         // ==========================================
         function carregarJogoRua() {
             conteudoJogo.innerHTML = `
-                <p><strong>Objetivo:</strong> Clique nos buracos pretos que aparecem no asfalto antes que o tempo acabe!</p>
+                <p><strong>Objetivo:</strong> Clique rápido nos buracos que surgem antes que eles sumam!</p>
                 <h3 id="score-rua">Buracos Consertados: 0</h3>
                 <div class="click-game-area" id="asfalto"></div>
             `;
-
             let score = 0;
             const asfalto = document.getElementById('asfalto');
             const scoreDisplay = document.getElementById('score-rua');
 
             function criarBuraco() {
-                if (!document.getElementById('asfalto')) return; // Para se mudou de tela
-
+                if (!document.getElementById('asfalto')) return;
                 const buraco = document.createElement('div');
                 buraco.classList.add('buraco');
-                
-                // Posições aleatórias dentro do container
                 const x = Math.random() * (asfalto.clientWidth - 70);
                 const y = Math.random() * (asfalto.clientHeight - 50);
-                
                 buraco.style.left = x + 'px';
                 buraco.style.top = y + 'px';
                 buraco.innerText = "🛠️";
-
                 buraco.onclick = function(e) {
                     e.stopPropagation();
                     score++;
                     scoreDisplay.innerText = "Buracos Consertados: " + score;
                     buraco.remove();
                 };
-
                 asfalto.appendChild(buraco);
-
-                // Sumir se não clicado em 1.5 segundos
-                setTimeout(() => {
-                    if (buraco.parentNode) {
-                        buraco.remove();
-                    }
-                }, 1500);
+                setTimeout(() => { if (buraco.parentNode) buraco.remove(); }, 1500);
             }
-
             jogoLoopInterval = setInterval(criarBuraco, 900);
         }
 
         // ==========================================
-        // JOGO 2: CALÇADA ACESSÍVEL (Mecânica Canvas)
+        // JOGO 2: CALÇADA ACESSÍVEL
         // ==========================================
         function carregarJogoRampa() {
             conteudoJogo.innerHTML = `
-                <p><strong>Objetivo:</strong> Use as <b>Setas do Teclado (Esquerda / Direita)</b> ou toque nas laterais para desviar dos obstáculos e fazer as rampas.</p>
+                <p><strong>Objetivo:</strong> Use <b>Setas Direita/Esquerda</b> ou clique nas laterais do canvas para desviar dos degraus.</p>
                 <h3 id="score-rampa">Pontuação: 0</h3>
                 <canvas id="canvasRampa" width="400" height="400"></canvas>
             `;
-
             const canvas = document.getElementById('canvasRampa');
             const ctx = canvas.getContext('2d');
             const scoreDisplay = document.getElementById('score-rampa');
 
             let jogadorX = 180;
-            let jogadorLargura = 40;
-            let obstaculoX = Math.random() * 360;
-            let obstaculoY = 0;
-            let obstaculoVelocidade = 4;
-            let rampaScore = 0;
-            let jogando = true;
+            let obstaculoX = Math.random() * 360, obstaculoY = 0, rampaScore = 0, jogando = true;
+            let teclaEsquerda = false, teclaDireita = false;
 
-            // Controles
-            let teclaEsquerda = false;
-            let teclaDireita = false;
-
-            document.onkeydown = function(e) {
+            document.onkeydown = (e) => {
                 if (e.key === "ArrowLeft") teclaEsquerda = true;
                 if (e.key === "ArrowRight") teclaDireita = true;
             };
-            document.onkeyup = function(e) {
+            document.onkeyup = (e) => {
                 if (e.key === "ArrowLeft") teclaEsquerda = false;
                 if (e.key === "ArrowRight") teclaDireita = false;
             };
 
-            // Suporte para toque em celular
-            canvas.addEventListener('touchstart', function(e) {
-                const toqueX = e.touches[0].clientX - canvas.getBoundingClientRect().left;
-                if (toqueX < canvas.width / 2) jogadorX -= 30;
-                else jogadorX += 30;
-            });
-
-            function atualizarJogo() {
-                if (!jogando) return;
-
-                // Movimentação
+            function atualizar() {
+                if (!jogando || !canvas) return;
                 if (teclaEsquerda && jogadorX > 0) jogadorX -= 5;
-                if (teclaDireita && jogadorX < canvas.width - jogadorLargura) jogadorX += 5;
+                if (teclaDireita && jogadorX < 360) jogadorX += 5;
 
-                // Limpar tela
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.clearRect(0, 0, 400, 400);
+                ctx.fillStyle = "#dfd5c6"; ctx.fillRect(0, 0, 400, 400);
 
-                // Desenhar Fundo (Calçada de Olinda simplificada)
-                ctx.fillStyle = "#dfd5c6";
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-                // Atualizar Obstáculo (Degrau sem rampa)
-                obstaculoY += obstaculoVelocidade;
-                if (obstaculoY > canvas.height) {
-                    obstaculoY = 0;
-                    obstaculoX = Math.random() * (canvas.width - 40);
-                    rampaScore++;
-                    scoreDisplay.innerText = "Pontuação: " + rampaScore;
-                    obstaculoVelocidade += 0.3; // Dificuldade aumenta
+                obstaculoY += 4;
+                if (obstaculoY > 400) {
+                    obstaculoY = 0; obstaculoX = Math.random() * 360;
+                    rampaScore++; scoreDisplay.innerText = "Pontuação: " + rampaScore;
                 }
 
-                // Desenhar Obstáculo (Calçada Alta sem rampa)
-                ctx.fillStyle = "#cc0000";
-                ctx.fillRect(obstaculoX, obstaculoY, 40, 20);
-                ctx.fillStyle = "white";
-                ctx.font = "12px Arial";
-                ctx.fillText("DEGRAU", obstaculoX + 2, obstaculoY + 15);
+                ctx.fillStyle = "#cc0000"; ctx.fillRect(obstaculoX, obstaculoY, 40, 20);
+                ctx.fillStyle = "#0056b3"; ctx.fillRect(jogadorX, 350, 40, 40);
+                ctx.fillStyle = "white"; ctx.font = "20px Arial"; ctx.fillText("♿", jogadorX + 10, 378);
 
-                // Desenhar Jogador (Cadeirante / Cidadão necessitando de acessibilidade)
-                ctx.fillStyle = "#0056b3";
-                ctx.fillRect(jogadorX, canvas.height - 50, jogadorLargura, 40);
-                ctx.fillStyle = "white";
-                ctx.font = "20px Arial";
-                ctx.fillText("♿", jogadorX + 10, canvas.height - 22);
-
-                // Detecção de Colisão
-                if (
-                    jogadorX < obstaculoX + 40 &&
-                    jogadorX + jogadorLargura > obstaculoX &&
-                    canvas.height - 50 < obstaculoY + 20 &&
-                    canvas.height - 10 > obstaculoY
-                ) {
+                if (jogadorX < obstaculoX + 40 && jogadorX + 40 > obstaculoX && 350 < obstaculoY + 20 && 390 > obstaculoY) {
                     jogando = false;
-                    ctx.fillStyle = "rgba(0,0,0,0.7)";
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
-                    ctx.fillStyle = "yellow";
-                    ctx.font = "20px sans-serif";
-                    ctx.fillText("Fim de Jogo! Faltou Rampa aqui.", 50, 180);
-                    ctx.fillText("Clique em voltar para reiniciar", 60, 220);
+                    ctx.fillStyle = "rgba(0,0,0,0.8)"; ctx.fillRect(0, 0, 400, 400);
+                    ctx.fillStyle = "yellow"; ctx.fillText("Falta de acessibilidade detectada!", 50, 200);
                     return;
                 }
-
-                requestAnimationFrame(atualizarJogo);
+                requestAnimationFrame(atualizar);
             }
+            atualizar();
+        }
 
-            atualizarJogo();
+        // ==========================================
+        // JOGO 3: SANEAMENTO JÁ! (Ligar os Canos)
+        // ==========================================
+        function carregarJogoEsgoto() {
+            conteudoJogo.innerHTML = `
+                <p><strong>Objetivo:</strong> Clique nos blocos de cano para rotacioná-los e criar um caminho contínuo da <b>Represa (💧)</b> até as <b>Casas (🏠)</b>!</p>
+                <h3 id="status-esgoto" style="color: var(--vermelho-pe)">Rede de Água: Desconectada ❌</h3>
+                <div class="pipe-grid" id="gridCanos"></div>
+            `;
+
+            // Representações visuais dos canos e seus respectivos ângulos necessários.
+            // Tipos: ═ (horizontal), ║ (vertical), ╔, ╗, ╚, ╝
+            const canosIniciais = [
+                { tipo: '💧', angle: 0, correto: 0 },   { tipo: '║', angle: 90, correto: 0 },  { tipo: '╗', angle: 0, correto: 90 },   { tipo: '═', angle: 0, correto: 0 },
+                { tipo: '═', angle: 90, correto: 0 },  { tipo: '╚', angle: 180, correto: 0 }, { tipo: '╠', angle: 90, correto: 180 }, { tipo: '║', angle: 0, correto: 0 },
+                { tipo: '╔', angle: 0, correto: 270 }, { tipo: '═', angle: 90, correto: 0 },  { tipo: '╝', angle: 90, correto: 180 }, { tipo: '🏠', angle: 0, correto: 0 }
+            ];
+
+            const gridCanos = document.getElementById('gridCanos');
+
+            canosIniciais.forEach((cano, idx) => {
+                const cell = document.createElement('div');
+                cell.classList.add('pipe-cell');
+                cell.innerText = cano.tipo;
+                
+                // Ignora rotação nos pontos fixos (Início e Fim)
+                if(cano.tipo !== '💧' && cano.tipo !== '🏠') {
+                    cell.style.transform = `rotate(${cano.angle}deg)`;
+                    cell.onclick = () => {
+                        cano.angle = (cano.angle + 90) % 360;
+                        cell.style.transform = `rotate(${cano.angle}deg)`;
+                        verificarConexao();
+                    };
+                }
+                gridCanos.appendChild(cell);
+            });
+
+            function verificarConexao() {
+                // Simplificação de verificação lógica de puzzle para manter compatibilidade e leveza
+                let resolvido = true;
+                canosIniciais.forEach(c => {
+                    if (c.tipo !== '💧' && c.tipo !== '🏠' && c.angle !== c.correto) {
+                        resolvido = false;
+                    }
+                });
+
+                const status = document.getElementById('status-esgoto');
+                if(resolvido) {
+                    status.innerText = "Rede Conectada! Água limpa para Olinda! 🌟✅";
+                    status.style.color = "var(--verde-olinda)";
+                } else {
+                    status.innerText = "Rede de Água: Desconectada ❌";
+                    status.style.color = "var(--vermelho-pe)";
+                }
+            }
+        }
+
+        // ==========================================
+        // JOGO 4: COLETA SELETIVA
+        // ==========================================
+        function carregarJogoLixo() {
+            conteudoJogo.innerHTML = `
+                <p><strong>Objetivo:</strong> Use as <b>setas Esquerda/Direita</b> para mover a lixeira verde e pegar apenas Recicláveis (♻️). Evite lixo comum (🗑️)!</p>
+                <h3 id="score-lixo">Pontos: 0</h3>
+                <canvas id="canvasLixo" width="400" height="400"></canvas>
+            `;
+            const canvas = document.getElementById('canvasLixo');
+            const ctx = canvas.getContext('2d');
+            let lixeiraX = 170, lixoX = Math.random()*360, lixoY = 0, itemTipo = '♻️', lixoScore = 0, ativo = true;
+            let esq = false, dir = false;
+
+            document.onkeydown = (e) => {
+                if (e.key === "ArrowLeft") esq = true;
+                if (e.key === "ArrowRight") dir = true;
+            };
+            document.onkeyup = (e) => {
+                if (e.key === "ArrowLeft") esq = false;
+                if (e.key === "ArrowRight") dir = false;
+            };
+
+            function rodar() {
+                if(!ativo || !canvas) return;
+                if(esq && lixeiraX > 0) lixeiraX -= 6;
+                if(dir && lixeiraX < 340) lixeiraX += 6;
+
+                ctx.clearRect(0, 0, 400, 400);
+                ctx.fillStyle = "#f39c12"; ctx.fillRect(0,0,400,400);
+
+                lixoY += 5;
+                if(lixoY > 400) {
+                    lixoY = 0; lixoX = Math.random()*360;
+                    itemTipo = Math.random() > 0.4 ? '♻️' : '🗑️';
+                }
+
+                ctx.font = "24px Arial";
+                ctx.fillText(itemTipo, lixoX, lixoY);
+                
+                ctx.fillStyle = "#27ae60"; ctx.fillRect(lixeiraX, 360, 60, 40);
+                ctx.fillStyle = "white"; ctx.font = "14px Arial"; ctx.fillText("RECICLA", lixeiraX+2, 385);
+
+                if(lixoY >= 350 && lixoX > lixeiraX - 15 && lixoX < lixeiraX + 55) {
+                    if(itemTipo === '♻️') {
+                        lixoScore += 10;
+                    } else {
+                        lixoScore -= 10;
+                    }
+                    document.getElementById('score-lixo').innerText = "Pontos: " + lixoScore;
+                    lixoY = 0; lixoX = Math.random()*360;
+                }
+                requestAnimationFrame(rodar);
+            }
+            rodar();
+        }
+
+        // ==========================================
+        // JOGO 5: ILUMINAÇÃO PÚBLICA
+        // ==========================================
+        function carregarJogoIlumina() {
+            conteudoJogo.innerHTML = `
+                <p><strong>Objetivo:</strong> Clique nos postes apagados (🏮) do Sítio Histórico para ligar a iluminação LED (💡)!</p>
+                <h3 id="score-ilumina">Postes Ativos: 0 / 6</h3>
+                <div class="click-game-area" style="background-color:#1a1a2e; display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap;" id="bairro"></div>
+            `;
+            const bairro = document.getElementById('bairro');
+            let ativos = 0;
+
+            for(let i=0; i<6; i++) {
+                const btn = document.createElement('button');
+                btn.style.fontSize = "3rem";
+                btn.style.background = "none";
+                btn.style.border = "none";
+                btn.innerText = "🏮";
+                btn.onclick = () => {
+                    if(btn.innerText === "🏮") {
+                        btn.innerText = "💡";
+                        ativos++;
+                        document.getElementById('score-ilumina').innerText = `Postes Ativos: ${ativos} / 6`;
+                        if(ativos === 6) {
+                            document.getElementById('score-ilumina').innerText = "Ruas Iluminadas e Seguras! 🌟👏";
+                        }
+                    }
+                };
+                bairro.appendChild(btn);
+            }
+        }
+
+        // ==========================================
+        // JOGO 6: REFLORESTA OLINDA
+        // ==========================================
+        function carregarJogoArvores() {
+            conteudoJogo.innerHTML = `
+                <p><strong>Objetivo:</strong> Clique em qualquer lugar do terreno árido abaixo para plantar uma árvore e mitigar o calor extremo.</p>
+                <h3 id="score-arvores">Árvores Plantadas: 0</h3>
+                <div class="click-game-area" style="background-color:#d35400;" id="calcadao"></div>
+            `;
+            let arvores = 0;
+            const calcadao = document.getElementById('calcadao');
+            calcadao.onclick = (e) => {
+                const mudas = ['🌳', '🌴', '🌸'];
+                const tree = document.createElement('div');
+                tree.style.position = 'absolute';
+                tree.style.fontSize = '2rem';
+                tree.style.left = (e.offsetX - 15) + 'px';
+                tree.style.top = (e.offsetY - 25) + 'px';
+                tree.innerText = mudas[Math.floor(Math.random()*mudas.length)];
+                calcadao.appendChild(tree);
+                arvores++;
+                document.getElementById('score-arvores').innerText = "Árvores Plantadas: " + arvores;
+            };
+        }
+
+        // ==========================================
+        // JOGO 7: CONTRA ALAGAMENTOS
+        // ==========================================
+        function carregarJogoAlagamento() {
+            conteudoJogo.innerHTML = `
+                <p><strong>Objetivo:</strong> Clique rápido nas folhas (🍁) e lixos que obstruem o bueiro urbano para evitar as enchentes!</p>
+                <h3 id="score-bueiro">Obstruções Removidas: 0</h3>
+                <div class="click-game-area" style="background-color:#7f8c8d;" id="bueiro-area"></div>
+            `;
+            let rScore = 0;
+            const area = document.getElementById('bueiro-area');
+            
+            function soltarFolha() {
+                if(!document.getElementById('bueiro-area')) return;
+                const folha = document.createElement('div');
+                folha.style.position = 'absolute';
+                folha.style.fontSize = '2.5rem';
+                folha.style.left = Math.random() * (area.clientWidth - 40) + 'px';
+                folha.style.top = Math.random() * (area.clientHeight - 40) + 'px';
+                folha.innerText = "🍁";
+                folha.onclick = (e) => {
+                    e.stopPropagation();
+                    rScore++;
+                    document.getElementById('score-bueiro').innerText = "Obstruções Removidas: " + rScore;
+                    folha.remove();
+                };
+                area.appendChild(folha);
+                setTimeout(() => { if(folha.parentNode) folha.remove(); }, 2000);
+            }
+            jogoLoopInterval = setInterval(soltarFolha, 800);
+        }
+
+        // ==========================================
+        // JOGO 8: RESTAURO HISTÓRICO
+        // ==========================================
+        function carregarJogoPatrimonio() {
+            conteudoJogo.innerHTML = `
+                <p><strong>Objetivo:</strong> Use o mouse clicando e arrastando sobre a parede para apagar as pichações e restaurar os casarões coloniais.</p>
+                <h3 id="score-restauro">Casarão 0% Restaurado</h3>
+                <canvas id="canvasRestauro" width="500" height="300"></canvas>
+            `;
+            const canvas = document.getElementById('canvasRestauro');
+            const ctx = canvas.getContext('2d');
+            
+            // Fundo restaurado (bonito)
+            ctx.fillStyle = "#ff7675"; ctx.fillRect(0,0,500,300);
+            ctx.fillStyle = "#ffeaa7"; ctx.fillRect(80,100,80,100); ctx.fillRect(340,100,80,100); // Janelas
+            
+            // Camada de pichação (Sujeira por cima)
+            const pichaCanvas = document.createElement('canvas');
+            pichaCanvas.width = 500; pichaCanvas.height = 300;
+            const pCtx = pichaCanvas.getContext('2d');
+            pCtx.fillStyle = "#636e72"; pCtx.fillRect(0,0,500,300);
+            pCtx.strokeStyle = "black"; pCtx.lineWidth = 6;
+            pCtx.font = "30px Arial"; pCtx.strokeText("PICHADO / SUJO", 140, 150);
+
+            // Desenhar camada suja por cima
+            ctx.drawImage(pichaCanvas, 0, 0);
+
+            let limpado = 0;
+            let pintando = false;
+
+            canvas.onmousedown = () => pintando = true;
+            canvas.onmouseup = () => pintando = false;
+            canvas.onmousemove = (e) => {
+                if(!pintando) return;
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Apaga a camada superior simulando limpeza
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.beginPath();
+                ctx.arc(x, y, 20, 0, Math.PI*2);
+                ctx.fill();
+                
+                limpado += 0.1;
+                let porc = Math.min(Math.floor(limpado), 100);
+                document.getElementById('score-restauro').innerText = `Casarão ${porc}% Restaurado ✨`;
+            };
         }
     </script>
 </body>
